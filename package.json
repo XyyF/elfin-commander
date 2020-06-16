@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "elfingit": "bin/elfingit.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./bin/elfingit -v"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/XyyF/elfingit/issues"
   },
-  "homepage": "https://github.com/XyyF/elfingit#readme"
+  "homepage": "https://github.com/XyyF/elfingit#readme",
+  "dependencies": {
+    "commander": "^5.1.0"
+  },
+  "files": [
+    "bin"
+  ]
 }
