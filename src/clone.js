@@ -8,14 +8,10 @@ function clone(source) {
     shell.echo('[start elfingit clone]')
     // 获取仓库名 & 校验
     const repo = getRepoFromSource(source)
-    if (!repo) {
-        shell.echo(`Error: 无效的仓库地址 ${source}`)
-        shell.exit(1)
-    }
     // clone仓库
-    // shell.exec(`git clone ${source}`)
+    shell.exec(`git clone ${source}`)
     // 进入主仓库目录
-    // shell.cd(`./${repo}`)
+    shell.cd(`./${repo}`)
     // 初始化依赖仓库
     shell.exec('elfingit init')
     // install依赖仓库
