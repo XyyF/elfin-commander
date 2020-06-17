@@ -10,11 +10,18 @@ module.exports = {
  * 校验.elfingit config文件
  */
 function validate(configs) {
-
+    if (Object.prototype.toString.call(configs) !== '[object Object]') {
+        throw new Error('Error validate configs: 错误的数据格式')
+    }
+    for (let config of configs) {
+        validateSource(config.source)
+    }
 }
 
 function validateSource(config) {
     if (!config.source) {
-        throw new Error(`Error validate configs: source is require`)
+        throw new Error(`Error validate configs: source字段是必须的`)
+    } else if (!/^git@.*:.*\.git$/.test(config.source)) {
+        throw new Error(`Error validate configs: source不是有效的ssh repo地址`)
     }
 }

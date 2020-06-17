@@ -4,11 +4,13 @@
 const shell = require('shelljs')
 const {getRepoFromSource} = require('../utils/git')
 const {loadFile} = require('../utils/shell')
+const {validate} = require('../utils/config-vlidator')
 
 function init() {
     shell.echo(`start elfingit init`)
     // 获取到配置文件
     const configs = loadFile('.elfingit.js')
+    validate(configs)
     // 回退目录
     shell.cd('..')
 
@@ -20,8 +22,7 @@ function init() {
             // clone
             shell.exec(`git clone ${config.source}`)
             shell.echo(`finish clone [${name}]`)
-        }
-        else {
+        } else {
             shell.echo(`依赖工程 [${name}] 已经存在`)
         }
     }
