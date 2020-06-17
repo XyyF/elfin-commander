@@ -5,7 +5,7 @@ const shell = require('shelljs')
 const {getRepoFromSource} = require('../utils/git')
 
 function clone(source) {
-    shell.echo('[start elfingit clone]')
+    shell.echo('start elfingit clone')
     // 获取仓库名 & 校验
     const repo = getRepoFromSource(source)
     // clone仓库
@@ -17,7 +17,7 @@ function clone(source) {
     // install依赖仓库
     shell.exec('elfingit install')
 
-    shell.echo('[finish elfingit clone]')
+    shell.echo('finish elfingit clone')
 }
 
 module.exports = clone
