@@ -1,8 +1,6 @@
 /**
  * Created by rengar on 2020/6/17.
  */
-const shell = require('shelljs')
-
 module.exports = {
     getRepoFromSource,
 }
@@ -14,8 +12,7 @@ module.exports = {
 function getRepoFromSource(source) {
     const repo = /(?<=\/)[^\/]+(?=\.git)/.exec(source)
     if (!repo) {
-        shell.echo(`Error: 无效的仓库地址 ${source}`)
-        shell.exit(1)
+        throw new Error(`Error: 无效的仓库地址 ${source}`)
     }
     return repo
 }

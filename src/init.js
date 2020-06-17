@@ -3,12 +3,12 @@
  */
 const shell = require('shelljs')
 const {getRepoFromSource} = require('../utils/git')
-const {getFileContent} = require('../utils/shell')
+const {loadFile} = require('../utils/shell')
 
 function init() {
     shell.echo(`start elfingit init`)
     // 获取到配置文件
-    const configs = getFileContent('.elfingit.js')
+    const configs = loadFile('.elfingit.js')
     // 回退目录
     shell.cd('..')
 

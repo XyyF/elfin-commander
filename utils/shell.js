@@ -5,14 +5,16 @@ const shell = require('shelljs')
 const path = require('path')
 
 module.exports = {
-    getFileContent,
+    loadFile,
 }
 
-function getFileContent(relativePath) {
+function loadFile(relativePath) {
+    const filePath = `${shell.pwd().stdout}${path.sep}${relativePath}`
+    shell.echo(`Loading file: ${filePath}`)
     try {
-        const filePath = `${shell.pwd().stdout}${path.sep}${relativePath}`
         return require(filePath)
     } catch (e) {
+        shell.echo(`Error Loading file: ${filePath}`)
         throw e
     }
 }
