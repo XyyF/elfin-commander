@@ -10,11 +10,11 @@ module.exports = {
  * 校验.elfingit config文件
  */
 function validate(configs) {
-    if (Object.prototype.toString.call(configs) !== '[object Object]') {
+    if (Object.prototype.toString.call(configs) !== '[object Array]') {
         throw new Error('Error validate configs: 错误的数据格式')
     }
     for (let config of configs) {
-        validateSource(config.source)
+        validateSource(config)
     }
 }
 

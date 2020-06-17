@@ -4,6 +4,7 @@ var program = require('commander')
 var version = require('../package.json').version
 var cloneCommand = require('../src/clone')
 var initCommand = require('../src/init')
+var installCommand = require('../src/install')
 
 program
     .version(version)
@@ -24,10 +25,10 @@ program
     })
 
 program
-    .command('install [name]')
+    .command('install')
     .description('depend repository run npm install')
-    .action((name) => {
-        console.log('clone command called', name)
+    .action(() => {
+        installCommand()
     })
 
 program

@@ -4,6 +4,9 @@
 
 module.exports = [
     {
-        source: 'git@code.aliyun.com:meetin_web/edu-saas-workbench.git',
+        source: 'git@github.com:XyyF/babel-plugin-glodash.git',
+    },
+    {
+        source: 'git@github.com:XyyF/babel-plugin-routeNamesChain.git',
     },
 ]
