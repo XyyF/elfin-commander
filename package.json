@@ -1,10 +1,10 @@
 {
-  "name": "elfingit",
+  "name": "elfin-commander",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "bin": {
-    "elfingit": "bin/elfingit.js"
+    "elfincmd": "dist/elfin-commander.js"
   },
   "scripts": {
     "test": "node ./bin/elfingit -v"
@@ -25,5 +25,9 @@
   },
   "files": [
     "bin"
-  ]
+  ],
+  "devDependencies": {
+    "@types/node": "^14.11.8",
+    "typescript": "^4.0.3"
+  }
 }
