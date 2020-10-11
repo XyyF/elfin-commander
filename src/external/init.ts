@@ -2,7 +2,7 @@
  * Created by rengar on 2020/6/17.
  */
 const shell = require('shelljs')
-const {getRepoFromSource} = require('../utils/git')
+const {getRepoFromSource} = require('../../utils/git')
 const {loadFile} = require('../utils/shell')
 const {validate} = require('../utils/config-vlidator')
 

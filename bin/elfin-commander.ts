@@ -3,9 +3,8 @@
 var program = require('commander')
 var version = require('../package.json').version
 
-var cloneCommand = require('../src/clone')
-var initCommand = require('../src/init')
-var installCommand = require('../src/install')
+var initCommand = require('../src/external/init')
+var installCommand = require('../src/external/install')
 
 program
     .version(version)
