@@ -27,3 +27,5 @@ elfincmd external install
 - 依赖工程2
 - ...
 ```
+
+// TODO 参考Vant-cli使用TS改造

@@ -23,7 +23,15 @@
     "commander": "^5.1.0",
     "shelljs": "^0.8.4"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "elfincmd hooks commit-msg"
+    }
+  },
   "files": [
     "bin"
-  ]
+  ],
+  "devDependencies": {
+    "husky": "^4.3.0"
+  }
 }

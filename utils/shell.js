@@ -14,7 +14,7 @@ function loadFile(relativePath) {
     const filePath = `${shell.pwd().stdout}${path.sep}${relativePath}`;
     shell.echo(`Loading file: ${filePath}`);
     try {
-        return fs.readFileSync(filePath, 'utf-8');
+        return fs.readFileSync(filePath, 'utf-8').trim();
     } catch (e) {
         shell.echo(`Error Loading file: ${filePath}`);
         throw e;
