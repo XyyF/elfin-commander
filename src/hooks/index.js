@@ -2,6 +2,7 @@
  * Created by rengar on 2020/10/13.
  */
 const shell = require('shelljs');
+const commitMsgShell = require('./commit-msg');
 
 const ExteHooksCommand = {
     EPC: 'external-post-checkout',
@@ -14,7 +15,7 @@ function external(command, options) {
     if (command === ExteHooksCommand.EPC) {
         // cloneShell();
     } else if (command === ExteHooksCommand.CM) {
-        // installShell();
+        commitMsgShell();
     }
 
     shell.echo(`end elfincmd hooks ${command}`);
