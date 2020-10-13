@@ -4,6 +4,7 @@
 const shell = require('shelljs');
 const cloneShell = require('./clone');
 const initShell = require('./init');
+const installShell = require('./install');
 
 const ExteErnalCommand = {
     Init: 'init',
@@ -17,7 +18,7 @@ function external(command) {
     if (command === ExteErnalCommand.Clone) {
         cloneShell();
     } else if (command === ExteErnalCommand.Install) {
-
+        installShell();
     } else if (command === ExteErnalCommand.Init) {
         initShell();
     }

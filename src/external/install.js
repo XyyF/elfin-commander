@@ -1,36 +1,40 @@
 /**
  * Created by rengar on 2020/6/17.
  */
-const shell = require('shelljs')
-const {getRepoFromSource} = require('../utils/git')
-const {loadFile} = require('../utils/shell')
-const {validate} = require('../utils/config-vlidator')
+const shell = require('shelljs');
+const { getRepoFromSource } = require('../../utils/git');
+const {requireFile} = require('../../utils/shell');
+const {validate} = require('./__utils/config-vlidator');
+const { fileName } = require('./__utils/enums');
 
 function install() {
-    shell.echo(`start elfingit install`)
+    shell.echo('start elfincmd external install');
+  
     // 获取到配置文件
-    const configs = loadFile('.elfingit.js')
-    validate(configs)
+    const configs = requireFile(fileName);
+    validate(configs);
     // 回退目录
-    shell.cd('..')
+    shell.cd('..');
 
     for (let config of configs) {
-        const name = getRepoFromSource(config.source)
+        if (config.skipInstall) continue;
+
+        const name = getRepoFromSource(config.sshAddress);
         // 是否已经init
         if (shell.test('-d', name)) {
             // 进入项目
-            shell.cd(name)
-            shell.echo(`start install [${name}]`)
+            shell.cd(name);
+            shell.echo(`start install [${name}]`);
             // clone
-            shell.exec('npm install')
-            shell.echo(`finish install [${name}]`)
+            shell.exec('npm install');
+            shell.echo(`finish install [${name}]`);
             // 回退目录
-            shell.cd('..')
+            shell.cd('..');
         } else {
-            throw new Error(`Error elfingit install: ${name}仓库不存在`)
+            throw new Error(`Error elfincmd external install: ${name}仓库不存在`);
         }
     }
-    shell.echo(`finish elfingit install`)
+    shell.echo('end elfincmd external install');
 }
 
-module.exports = install
+module.exports = install;
