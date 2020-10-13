@@ -3,8 +3,8 @@
 var program = require('commander')
 var version = require('../package.json').version
 
-var initCommand = require('../src/external/init')
-var installCommand = require('../src/external/install')
+// var initCommand = require('../src/external/init')
+// var installCommand = require('../src/external/install')
 
 program
     .version(version)
@@ -17,53 +17,48 @@ program
  */
 program
     .command('external <command>')
-    .description('external工程间方法')
+    .description('external工程初始化方法')
     .action((command) => {
-        console.log(111, command);
+        require('../src/external')(command);
     })
-    .on('--help', function() {
+    .on('--help', function () {
         console.log('');
         console.log('command-name:');
         console.log('  init');
+        console.log('  clone');
         console.log('  install');
         console.log('');
     });
 
-// program
-//     .command('clone <source>')
-//     .description('clone a repository into a newly created directory')
-//     .action((source) => {
-//         cloneCommand(source)
-//     })
-
-// program
-//     .command('init')
-//     .description('init depend repository')
-//     .action(() => {
-//         initCommand()
-//     })
-
-// program
-//     .command('install')
-//     .description('depend repository run npm install')
-//     .action(() => {
-//         installCommand()
-//     })
-
-// program
-//     .command('hooks <hookName> [options]')
-//     .description('depend repository run npm install')
-//     .action((hookName, options) => {
-//         console.log('clone command called', hookName, options)
-//     })
-//     .on('--help', function() {
-//         console.log('');
-//         console.log('hook-name:');
-//         console.log('  post-checkout');
-//         console.log('  pre-push');
-//         console.log('  post-merge');
-//         console.log('  reset-branch');
-//         console.log('');
-//     });
+program
+    .command('hooks <hookName> [options]')
+    .description('depend repository run npm install')
+    .action((hookName, options) => {
+        console.log('clone command called', hookName, options)
+    })
+    .on('--help', function() {
+        console.log('');
+        console.log('hook-name:');
+        console.log('  post-checkout');
+        console.log('  pre-push');
+        console.log('  post-merge');
+        console.log('  reset-branch');
+        console.log('');
+    });
 
 program.parse(process.argv)
+
+// commander passes the Command object itself as options,
+// extract only actual options into a fresh object.
+function cleanArgs(cmd) {
+    const args = {}
+    cmd.options.forEach(o => {
+        const key = o.long.replace(/^--/, '')
+        // if an option is not present and Command has a method with the same name
+        // it should not be copied
+        if (typeof cmd[key] !== 'function' && typeof cmd[key] !== 'undefined') {
+            args[key] = cmd[key]
+        }
+    })
+    return args
+}  
