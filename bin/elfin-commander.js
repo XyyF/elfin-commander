@@ -24,7 +24,7 @@ program
     .on('--help', function () {
         console.log('');
         console.log('command-name:');
-        console.log('  init');
+        console.log('  init 初始化.elfin.external.js文件');
         console.log('  clone');
         console.log('  install');
         console.log('');
