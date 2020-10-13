@@ -8,7 +8,7 @@ module.exports = {
 // \033[背景色编号;字色编号m  ~~  \033[0m
 
 function warning(str) {
-    console.log('\033[33;30m WARNING \033[0m' + str);
+    console.log('\033[43;30m WARNING \033[0m' + str);
 };
 
 function error(str) {
