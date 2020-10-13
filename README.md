@@ -2,7 +2,7 @@
 
 elfin命令行工具
 
-### multirepo管理
+## multirepo管理
 ```bash
 # multirepo工程配置文件初始化
 elfincmd external init
@@ -27,5 +27,26 @@ elfincmd external install
 - 依赖工程2
 - ...
 ```
+
+## hooks命令
+
+### commit-msg命令
+```bash
+elfincmd hooks commit-msg
+```
+配置在package.json中，自动化检测commit msg
+```js
+npm install husky --save-dev
+
+// package.json
+"husky": {
+    "hooks": {
+        "commit-msg": "elfincmd hooks commit-msg"
+    }
+},
+```
+
+
+
 
 // TODO 参考Vant-cli使用TS改造
