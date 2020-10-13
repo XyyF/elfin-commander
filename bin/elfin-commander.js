@@ -31,7 +31,7 @@ program
     });
 
 program
-    .command('hooks <hookName> [options]')
+    .command('hooks <hookName>')
     .description('external multirepo同步依赖工程分支状态')
     .action((hookName, cmd) => {
         const options = cleanArgs(cmd)
