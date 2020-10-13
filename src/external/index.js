@@ -2,7 +2,7 @@
  * Created by rengar on 2020/10/13.
  */
 const shell = require('shelljs');
-// const cloneShell = require('./clone');
+const cloneShell = require('./clone');
 const initShell = require('./init');
 
 const ExteErnalCommand = {
@@ -15,7 +15,7 @@ function external(command) {
     shell.echo(`start elfincmd external, command=${command}`);
 
     if (command === ExteErnalCommand.Clone) {
-        // cloneShell();
+        cloneShell();
     } else if (command === ExteErnalCommand.Install) {
 
     } else if (command === ExteErnalCommand.Init) {

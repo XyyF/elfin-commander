@@ -19,9 +19,9 @@ function validate(configs) {
 }
 
 function validateSource(config) {
-    if (!config.source) {
-        throw new Error(`Error validate configs: source字段是必须的`)
-    } else if (!/^git@.*:.*\.git$/.test(config.source)) {
-        throw new Error(`Error validate configs: source不是有效的ssh repo地址`)
+    if (!config.sshAddress) {
+        throw new Error(`Error validate configs: sshAddress字段是必须的`)
+    } else if (!/^git@.*:.*\.git$/.test(config.sshAddress)) {
+        throw new Error(`Error validate configs: sshAddress不是有效的ssh repo地址`)
     }
 }
