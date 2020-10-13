@@ -16,17 +16,17 @@ program
  * elfincmd external checkout
  */
 program
-    .command('external <command>')
-    .description('external工程初始化方法')
+    .command('external <command-name>')
+    .description('external multirepo工程初始化方法')
     .action((command) => {
         require('../src/external')(command);
     })
     .on('--help', function () {
         console.log('');
         console.log('command-name:');
-        console.log('  init 初始化.elfin.external.js文件');
-        console.log('  clone');
-        console.log('  install');
+        console.log(' $ init     初始化.elfin.external.js文件');
+        console.log(' $ clone    根据配置文件克隆相应的工程');
+        console.log(' $ install  根据配置文件下载相应的依赖');
         console.log('');
     });
 

@@ -4,9 +4,8 @@
 const shell = require('shelljs');
 const path = require('path');
 const fs = require('fs');
-
-const fileName = '.elfin.external.js';
-const templatePath = `../../templates/${fileName}`
+const {loadFile} = require('../../utils/shell');
+const {fileName, templatePath} = require('./__utils/enums');
 
 async function init() {
     shell.echo('start elfincmd external init');
@@ -15,10 +14,9 @@ async function init() {
         // TODO warning警示
         shell.echo('external init file exist');
     } else {
-        const templateFile = path.resolve(__dirname, templatePath);
-        const template = fs.readFileSync(templateFile, 'utf-8');
-    
+        const template = loadFile(templatePath);
         fs.writeFileSync(fileName, template);
+        
         shell.echo(`external init file: ${fileName}`);
     }
 
