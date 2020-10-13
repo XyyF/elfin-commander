@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "elfincmd": "dist/elfin-commander.js"
+    "elfincmd": "bin/elfin-commander.js"
   },
   "scripts": {
     "test": "node ./bin/elfingit -v"
@@ -25,10 +25,5 @@
   },
   "files": [
     "bin"
-  ],
-  "devDependencies": {
-    "@types/node": "^14.11.8",
-    "@types/shelljs": "^0.8.8",
-    "typescript": "^4.0.3"
-  }
+  ]
 }
