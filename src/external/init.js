@@ -6,7 +6,7 @@ const path = require('path');
 const fs = require('fs');
 const { loadFile } = require('../../utils/shell');
 const { warning, error } = require('../../utils/log');
-const { fileName, templatePath } = require('./__utils/enums');
+const { fileName, templatePath } = require('../../utils/enums');
 
 async function init() {
     shell.echo('start elfincmd external init');

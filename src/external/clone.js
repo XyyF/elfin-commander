@@ -5,8 +5,8 @@ const shell = require('shelljs');
 const { getRepoFromSource } = require('../../utils/git');
 const { requireFile } = require('../../utils/shell');
 const { warning } = require('../../utils/log');
-const { validate } = require('./__utils/config-vlidator');
-const { fileName } = require('./__utils/enums');
+const { validate } = require('../../utils/config-vlidator');
+const { fileName } = require('../../utils/enums');
 
 function clone() {
     shell.echo('start elfincmd external clone');

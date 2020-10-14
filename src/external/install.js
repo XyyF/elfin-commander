@@ -4,8 +4,8 @@
 const shell = require('shelljs');
 const { getRepoFromSource } = require('../../utils/git');
 const {requireFile} = require('../../utils/shell');
-const {validate} = require('./__utils/config-vlidator');
-const { fileName } = require('./__utils/enums');
+const {validate} = require('../../utils/config-vlidator');
+const { fileName } = require('../../utils/enums');
 
 function install() {
     shell.echo('start elfincmd external install');
