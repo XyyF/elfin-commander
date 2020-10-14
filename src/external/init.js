@@ -2,7 +2,6 @@
  * Created by rengar on 2020/6/17.
  */
 const shell = require('shelljs');
-const path = require('path');
 const fs = require('fs');
 const { loadFile } = require('../../utils/shell');
 const { warning, error } = require('../../utils/log');
