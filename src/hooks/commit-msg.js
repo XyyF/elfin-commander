@@ -1,6 +1,6 @@
 const shell = require('shelljs');
 const { loadFile } = require('../../utils/shell');
-const { error } = require('../../utils/log')
+const { error } = require('../../utils/log');
 
 const commitRE = /^(revert: )?(fix|feat|docs|perf|test|types|style|build|chore|refactor|breaking change)(\(.+\))?: .{1,50}/;
 const mergeRE = /Merge /;
