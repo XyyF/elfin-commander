@@ -45,16 +45,12 @@ program
         console.log('');
     });
 
-program.command('wcn <command-name> [options]')
-    .description('未成年小程序快捷操作')
-    .action((command, cmd) => {
-        const options = cleanArgs(cmd)
-        require('../src/wcn')(command, options);
+program.command('pc')
+    .description('Personalized customization个性化定制脚本命令')
+    .action(() => {
+        require('../src/personalized-customization')();
     })
     .on('--help', function() {
-        console.log('');
-        console.log('command-name:');
-        console.log(' $ create   初始化文件');
         console.log('');
     });
 
