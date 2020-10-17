@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const ejs = require('ejs');
 const fs = require('fs');
-const { loadFileFromRoot, loadFlieFromCwd } = require('../../../utils/shell');
+const { loadFileFromRoot, writeFlieFromCwd } = require('../../../utils/shell');
 
 // 改造 未成年页面js文件
 module.exports = async function retrofitJs() {
@@ -20,7 +20,7 @@ module.exports = async function retrofitJs() {
     // 转化模板内容
     const trans = ejs.render(template, { PageName: firstUpperCase(action) });
     // 写内容到文件中
-    fs.writeFileSync(`${process.cwd()}\\${action}.js`, trans);
+    writeFlieFromCwd(`${action}.js`, trans);
 }
 
 function firstUpperCase(str) {

@@ -9,6 +9,7 @@ module.exports = {
     loadFileFromRoot,
     loadFlieFromCwd,
     requireFile,
+    writeFlieFromCwd,
 }
 
 /**
@@ -16,15 +17,18 @@ module.exports = {
  * @param {string} relativePath 相对根目录的路径 
  */
 function loadFileFromRoot(relativePath) {
-    return loadFile(relativePath, `${shell.pwd().stdout}${path.sep}`);
+    return loadFile(path.resolve(__dirname, `..${path.sep}${relativePath}`));
 }
 
+/**
+ * 在当前 脚本命令执行目录下 加载文件
+ * @param {*} relativePath 
+ */
 function loadFlieFromCwd(relativePath) {
-    return loadFile(relativePath, process.cwd());
+    return loadFile(path.resolve(process.cwd(), relativePath));
 }
 
-function loadFile(relativePath, rootPath) {
-    const filePath = `${rootPath}${relativePath}`;
+function loadFile(filePath) {
     try {
         return fs.readFileSync(filePath, 'utf-8').trim();
     } catch (e) {
@@ -38,11 +42,27 @@ function loadFile(relativePath, rootPath) {
  * @param {string} relativePath 相对根目录的灵 
  */
 function requireFile(relativePath) {
-    const filePath = `${shell.pwd().stdout}${path.sep}${relativePath}`;
+    const filePath = path.resolve(__dirname, `..${path.sep}${relativePath}`);
     try {
         return require(filePath);
     } catch (e) {
         shell.echo(`Error Loading file: ${filePath}`);
         throw e;
     }
+}
+
+/**
+ * 写文件
+ */
+function writeFile(filePath, template) {
+    try {
+        return fs.writeFileSync(filePath, template);
+    } catch (e) {
+        shell.echo(`Error Write file: ${filePath}`);
+        throw e;
+    }
+}
+
+function writeFlieFromCwd(relativePath, template) {
+    return writeFile(path.resolve(process.cwd(), relativePath), template);
 }
