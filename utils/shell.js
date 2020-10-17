@@ -6,13 +6,26 @@ const path = require('path');
 const fs = require('fs');
 
 module.exports = {
-    loadFile,
+    loadFileFromRoot,
+    loadFlieFromCwd,
     requireFile,
 }
 
-function loadFile(relativePath) {
+/**
+ * 加载模板文件内容
+ * @param {string} relativePath 相对根目录的路径 
+ */
+function loadFileFromRoot(relativePath) {
+    return loadFile(relativePath, `${shell.pwd().stdout}${path.sep}`);
+}
+
+function loadFlieFromCwd(relativePath) {
+    return loadFile(relativePath, process.cwd());
+}
+
+function loadFile(relativePath, rootPath) {
+    const filePath = `${rootPath}${relativePath}`;
     try {
-        const filePath = `${shell.pwd().stdout}${path.sep}${relativePath}`;
         return fs.readFileSync(filePath, 'utf-8').trim();
     } catch (e) {
         shell.echo(`Error Loading file: ${filePath}`);
@@ -20,9 +33,12 @@ function loadFile(relativePath) {
     }
 }
 
+/**
+ * 导入文件
+ * @param {string} relativePath 相对根目录的灵 
+ */
 function requireFile(relativePath) {
     const filePath = `${shell.pwd().stdout}${path.sep}${relativePath}`;
-    shell.echo(`Loading file: ${filePath}`);
     try {
         return require(filePath);
     } catch (e) {

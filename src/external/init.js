@@ -3,7 +3,7 @@
  */
 const shell = require('shelljs');
 const fs = require('fs');
-const { loadFile } = require('../../utils/shell');
+const { loadFileFromRoot } = require('../../utils/shell');
 const { warning, error } = require('../../utils/log');
 const { fileName, templatePath } = require('../../utils/enums');
 
@@ -13,7 +13,7 @@ async function init() {
     if (fs.existsSync(fileName)) {
         warning('external init file exist');
     } else {
-        const template = loadFile(templatePath);
+        const template = loadFileFromRoot(templatePath);
         fs.writeFileSync(fileName, template);
 
         shell.echo(`external init file: ${fileName}`);
