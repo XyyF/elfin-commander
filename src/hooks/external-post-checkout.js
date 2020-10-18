@@ -1,5 +1,5 @@
 const shell = require('shelljs');
-const { requireFile } = require('../../utils/shell');
+const { requireFileFromElfinRoot } = require('../../utils/shell');
 const { error } = require('../../utils/log');
 const { fileName } = require('../../utils/enums');
 
@@ -13,7 +13,7 @@ module.exports = function postCheckout(options) {
     if (checkoutType === '0') return;
 
      // 获取到配置文件
-     const configs = requireFile(fileName);
+     const configs = requireFileFromElfinRoot(fileName);
      validate(configs);
 
     // const nowBranch = branch || gitUtils.getCurrentBranch()

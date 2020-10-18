@@ -1,5 +1,5 @@
 const shell = require('shelljs');
-const { loadFileFromRoot } = require('../../utils/shell');
+const { loadFileFromElfinRoot } = require('../../utils/shell');
 const { error } = require('../../utils/log');
 
 const commitRE = /^(revert: )?(fix|feat|docs|perf|test|types|style|build|chore|refactor|breaking change)(\(.+\))?: .{1,50}/;
@@ -10,7 +10,7 @@ module.exports = function commitMsg() {
   shell.echo('start elfincmd hooks commit-msg');
 
   const gitParams = process.env.HUSKY_GIT_PARAMS;
-  const commitMsg = loadFileFromRoot(gitParams);
+  const commitMsg = loadFileFromElfinRoot(gitParams);
 
   if (!commitRE.test(commitMsg) && !mergeRE.test(commitMsg)) {
     error(`invalid commit message: "${commitMsg}".

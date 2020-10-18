@@ -3,7 +3,7 @@
  */
 const shell = require('shelljs');
 const { getRepoFromSource } = require('../../utils/git');
-const {requireFile} = require('../../utils/shell');
+const {requireFileFromElfinRoot} = require('../../utils/shell');
 const {validate} = require('../../utils/config-vlidator');
 const { fileName } = require('../../utils/enums');
 
@@ -11,7 +11,7 @@ function install() {
     shell.echo('start elfincmd external install');
   
     // 获取到配置文件
-    const configs = requireFile(fileName);
+    const configs = requireFileFromElfinRoot(fileName);
     validate(configs);
     // 回退目录
     shell.cd('..');
