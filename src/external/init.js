@@ -4,7 +4,7 @@
 const shell = require('shelljs');
 const fs = require('fs');
 const { warning, error } = require('../../utils/log');
-const { fileName, templatePath } = require('../../utils/enums');
+const { fileName } = require('../../utils/enums');
 
 const { renderByTempalte } = require('../../utils/ejs');
 
@@ -14,7 +14,7 @@ async function init() {
     if (fs.existsSync(fileName)) {
         warning('external init file exist');
     } else {
-        renderByTempalte(templatePath, {
+        renderByTempalte('templates/.elfin.external.ejs', {
             __outName: fileName,
         });
 
