@@ -3,9 +3,10 @@
  */
 const shell = require('shelljs');
 const fs = require('fs');
-const { loadFileFromElfinRoot } = require('../../utils/shell');
 const { warning, error } = require('../../utils/log');
 const { fileName, templatePath } = require('../../utils/enums');
+
+const { renderByTempalte } = require('../../utils/ejs');
 
 async function init() {
     shell.echo('start elfincmd external init');
@@ -13,8 +14,9 @@ async function init() {
     if (fs.existsSync(fileName)) {
         warning('external init file exist');
     } else {
-        const template = loadFileFromElfinRoot(templatePath);
-        fs.writeFileSync(fileName, template);
+        renderByTempalte(templatePath, {
+            __outName: fileName,
+        });
 
         shell.echo(`external init file: ${fileName}`);
     }
