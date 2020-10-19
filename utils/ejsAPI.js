@@ -1,5 +1,5 @@
 const ejs = require('ejs');
-const { loadFileFromElfinRoot, writeFlieFromScript } = require('./shell');
+const ShellUtil = require('./shell');
 
 module.exports = class EjsAPI {
     constructor() {}
@@ -11,11 +11,12 @@ module.exports = class EjsAPI {
      * @param {object} renderData.__outName  输出的文件名
      */
     _renderByTempalte(templatePath, renderData) {
+        const shellUtil = new ShellUtil();
         // 读取模板内容
-        const template = loadFileFromElfinRoot(templatePath);
+        const template = shellUtil.loadFileFromElfinRoot(templatePath);
         // 转化模板内容
         const transData = ejs.render(template, renderData);
         // 写内容到文件中
-        return writeFlieFromScript(renderData.__outName, transData);
+        return shellUtil.writeFlieFromScript(renderData.__outName, transData);
     }
 }
