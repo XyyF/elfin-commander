@@ -2,7 +2,7 @@ const shell = require('shelljs');
 const ShellUtil = require('../../utils/shell');
 const { error } = require('../../utils/log');
 
-const commitRE = /^(revert: )?(fix|feat|docs|perf|test|types|style|build|chore|refactor|breaking change)(\(.+\))?: .{1,50}/;
+const commitRE = /^(revert: )?(fix|feat|docs|perf|test|types|style|build|refactor|breaking change)(\(.+\))?: .{1,50}/;
 const mergeRE = /Merge /;
 
 
@@ -20,16 +20,15 @@ module.exports = function commitMsg() {
   - fix: incorrect style
   - feat: incorrect style
   Allowed Types:
-  - fix
-  - feat
-  - docs
-  - perf
-  - test
-  - types
-  - build
-  - chore
-  - refactor
-  - breaking change
+  - fix      修复bug
+  - feat     完成需求
+  - docs     补充文档
+  - perf     性能相关
+  - test     测试代码
+  - types    声明文件
+  - style    css相关
+  - build    编译相关
+  - refactor 重构代码
   - Merge branch 'foo' into 'bar'
   `);
     process.exit(1);
