@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const { renderByTempalte } = require('../../../utils/ejs');
+const Ejs = require('../../../utils/ejs');
 
 // 改造 未成年页面js文件
 module.exports = async function retrofitJs() {
@@ -13,10 +13,8 @@ module.exports = async function retrofitJs() {
 
 	if (!action) return;
 
-	renderByTempalte('templates/wcn/page.ejs', {
-		PageName: firstUpperCase(action),
-		__outName: `${action}.js`,
-	});
+	const ejs = new Ejs();
+	ejs.renderWcnPage(action);
 };
 
 function firstUpperCase(str) {

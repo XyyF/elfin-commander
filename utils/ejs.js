@@ -1,21 +1,24 @@
-const ejs = require('ejs');
-const { loadFileFromElfinRoot, writeFlieFromScript } = require('./shell');
+const EjsAPI = require('./ejsAPI');
 
-module.exports = {
-	renderByTempalte,
-};
+module.exports = class Ejs extends EjsAPI {
+	constructor() {
+		super()
+	}
 
-/**
- * 根据模版渲染
- * @param {string} templatePath 形如 "templates\\wcn\\page.ejs"
- * @param {object} renderData  渲染数据
- * @param {object} renderData.__outName  输出的文件名
- */
-function renderByTempalte(templatePath, renderData) {
-	// 读取模板内容
-	const template = loadFileFromElfinRoot(templatePath);
-	// 转化模板内容
-	const transData = ejs.render(template, renderData);
-	// 写内容到文件中
-	return writeFlieFromScript(renderData.__outName, transData);
+	renderWcnPage(fileName) {
+		return this._renderByTempalte('templates/wcn/page.ejs', {
+			PageName: firstUpperCase(fileName),
+			__outName: `${fileName}.js`,
+		});
+	}
+
+	renderExternal() {
+		return this._renderByTempalte('templates/.elfin.external.ejs', {
+            __outName: '.elfin.external.js',
+        });
+	}
+}
+
+function firstUpperCase(str) {
+	return str.replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
 }
