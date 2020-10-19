@@ -5,7 +5,7 @@ const shell = require('shelljs');
 const cloneShell = require('./clone');
 const initShell = require('./init');
 const installShell = require('./install');
-const { warning } = require('../../utils/log');
+const logUtil = require('../../utils/log');
 
 const ExteErnalCommand = {
     Init: 'init',
@@ -23,7 +23,7 @@ function external(command) {
     } else if (command === ExteErnalCommand.Init) {
         initShell();
     } else {
-        warning(`不存在的命令: command=${command}`);
+        logUtil.warning(`不存在的命令: command=${command}`);
     }
 
     shell.echo(`end elfincmd external ${command}`);

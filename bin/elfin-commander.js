@@ -42,6 +42,7 @@ program
         console.log('hook-name:');
         console.log(' $ external-post-checkout   before切换分支,同步依赖工程分支');
         console.log(' $ commit-msg               before提交commit注释');
+        console.log(' $ cm-help                  before提交commit注释帮助');
         console.log('');
     });
 

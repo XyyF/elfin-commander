@@ -3,11 +3,13 @@
  */
 const shell = require('shelljs');
 const commitMsgShell = require('./commit-msg');
-const { warning } = require('../../utils/log');
+const commitHelp = require('./commit-help');
+const logUtil = require('../../utils/log');
 
 const ExteHooksCommand = {
     EPC: 'external-post-checkout',
     CM: 'commit-msg',
+    CMH: 'cm-help',
 };
 
 function hooks(command, options) {
@@ -17,8 +19,10 @@ function hooks(command, options) {
         // cloneShell();
     } else if (command === ExteHooksCommand.CM) {
         commitMsgShell();
+    } else if (command === ExteHooksCommand.CMH) {
+        commitHelp();
     } else {
-        warning(`不存在的命令: command=${command}`);
+        logUtil.warning(`不存在的命令: command=${command}`);
     }
 
     shell.echo(`end elfincmd hooks ${command}`);

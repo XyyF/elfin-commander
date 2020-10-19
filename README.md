@@ -50,3 +50,4 @@ npm install husky --save-dev
 
 
 // TODO 参考Vant-cli使用TS改造
+// TODO globby多文件模板文件构建

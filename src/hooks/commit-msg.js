@@ -1,6 +1,6 @@
 const shell = require('shelljs');
 const ShellUtil = require('../../utils/shell');
-const { error } = require('../../utils/log');
+const logUtil = require('../../utils/log');
 
 const commitRE = /^(revert: )?(fix|feat|docs|perf|test|types|style|build|refactor|breaking change)(\(.+\))?: .{1,50}/;
 const mergeRE = /Merge /;
@@ -14,7 +14,7 @@ module.exports = function commitMsg() {
   const commitMsg = shellUtil.loadFileFromElfinRoot(gitParams);
 
   if (!commitRE.test(commitMsg) && !mergeRE.test(commitMsg)) {
-    error(`invalid commit message: "${commitMsg}".
+    logUtil.error(`invalid commit message: "${commitMsg}".
   Proper commit message format is required for automated changelog generation.
   Examples: 
   - fix: incorrect style

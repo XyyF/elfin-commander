@@ -1,6 +1,6 @@
 const shell = require('shelljs');
 const ShellUtil = require('../../utils/shell');
-const { error } = require('../../utils/log');
+// const logUtil = require('../../utils/log');
 const { fileName } = require('../../utils/enums');
 
 

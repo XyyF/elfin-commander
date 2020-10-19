@@ -4,7 +4,7 @@
 const shell = require('shelljs');
 const { getRepoFromSource } = require('../../utils/git');
 const ShellUtil = require('../../utils/shell');
-const { warning } = require('../../utils/log');
+const logUtil = require('../../utils/log');
 const { validate } = require('../../utils/config-vlidator');
 const { fileName } = require('../../utils/enums');
 
@@ -33,7 +33,7 @@ function clone() {
             }
             shell.echo(`finish clone [${name}]`);
         } else {
-            warning(`依赖工程 [${name}] 已经存在`);
+            logUtil.warning(`依赖工程 [${name}] 已经存在`);
         }
     }
 
