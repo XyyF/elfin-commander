@@ -13,8 +13,8 @@ module.exports = async function retrofitJs() {
 
 	if (!action) return;
 
-	const ejs = new Ejs();
-	ejs.renderWcnPage(action);
+	const ejs = new Ejs({fileName: action});
+	ejs.renderWcnPage();
 };
 
 function firstUpperCase(str) {

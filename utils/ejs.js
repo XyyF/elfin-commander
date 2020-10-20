@@ -1,14 +1,17 @@
 const EjsAPI = require('./ejsAPI');
 
 module.exports = class Ejs extends EjsAPI {
-	constructor() {
-		super()
+	fileName = '';
+
+	constructor(options = {}) {
+		super();
+		this.fileName = options.fileName;
 	}
 
-	renderWcnPage(fileName) {
+	renderWcnPage() {
 		return this._renderByTempalte('templates/wcn/page.ejs', {
-			PageName: firstUpperCase(fileName),
-			__outName: `${fileName}.js`,
+			PageName: firstUpperCase(this.fileName),
+			__outName: `${this.fileName}.js`,
 		});
 	}
 
