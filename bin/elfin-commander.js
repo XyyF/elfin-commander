@@ -37,12 +37,11 @@ program
         const options = cleanArgs(cmd)
         require('../src/hooks')(hookName, options);
     })
-    .on('--help', function() {
+    .on('--help', function () {
         console.log('');
         console.log('hook-name:');
         console.log(' $ external-post-checkout   before切换分支,同步依赖工程分支');
         console.log(' $ commit-msg               before提交commit注释');
-        console.log(' $ cm-help                  before提交commit注释帮助');
         console.log('');
     });
 
@@ -51,7 +50,19 @@ program.command('pc')
     .action(() => {
         require('../src/personalized-customization')();
     })
-    .on('--help', function() {
+    .on('--help', function () {
+        console.log('');
+    });
+
+program
+    .command('docs')
+    .description('docs 文档提示命令')
+    .action(() => {
+        require('../src/docs')();
+    })
+    .on('--help', function () {
+        console.log('');
+        console.log('doc-name:');
         console.log('');
     });
 
