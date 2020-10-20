@@ -46,6 +46,8 @@ npm install husky --save-dev
 },
 ```
 
+## docs命令
+用以查看常用的文档信息
 
 
 
