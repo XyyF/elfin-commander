@@ -13,7 +13,7 @@ function clone() {
 
     // 获取到配置文件
     const shellUtil = new ShellUtil();
-    const configs = shellUtil.requireFileFromElfinRoot(fileName);
+    const configs = shellUtil.requireFileFromScriptRoot(fileName);
     validate(configs);
     // 回退目录
     shell.cd('..');

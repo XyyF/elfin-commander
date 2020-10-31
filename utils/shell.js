@@ -20,6 +20,10 @@ module.exports = class Shell extends ShellAPI {
         return this._requireFile(this._getRootPath(relativePath));
     }
 
+    requireFileFromScriptRoot(relativePath) {
+        return this._requireFile(this._getCurrentPath(relativePath));
+    }
+
     writeFlieFromScript(relativePath, template) {
         return this._writeFile(this._getCurrentPath(relativePath), template);
     }

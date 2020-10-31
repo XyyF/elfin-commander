@@ -17,6 +17,10 @@ class Log extends LogAPI {
         return this._log(this._getColorLog(str, 'yellow'));
     }
 
+    logGreen(str) {
+        return this._log(this._getColorLog(str, 'green'));
+    }
+
     log(str) {
         return this._log(str);
     }

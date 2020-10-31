@@ -6,6 +6,7 @@ const shell = require('shelljs');
 const ColorEnums = {
     yellow: '\x1B[43m\x1B[30m ${string} \x1B[0m',
     red: '\x1B[41m\x1B[30m ${string} \x1B[0m',
+    green: '\x1B[40m\x1B[32m ${string} \x1B[0m',
 }
 
 module.exports = class LogAPI {
