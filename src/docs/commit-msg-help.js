@@ -1,7 +1,7 @@
 const logUtil = require('../../utils/log');
 
 module.exports = function commitMsg() {
-    logUtil.logYellow('Allowed Types:')
+    logUtil.logBgYellow('Allowed Types:')
     logUtil.log(`
     - fix      修复bug
     - feat     完成需求

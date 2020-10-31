@@ -4,9 +4,15 @@ const shell = require('shelljs');
 // 背景编号：40黑，41红，42绿，43黄，44蓝，45紫，46深绿，47白色
 // \x1B[背景色编号m\x1B[字色编号m  ~~  \x1B[0m
 const ColorEnums = {
+    yellow: '\x1B[40m\x1B[33m ${string} \x1B[0m',
+    red: '\x1B[40m\x1B[31m ${string} \x1B[0m',
+    green: '\x1B[40m\x1B[32m ${string} \x1B[0m',
+}
+
+const BgColorEnums = {
     yellow: '\x1B[43m\x1B[30m ${string} \x1B[0m',
     red: '\x1B[41m\x1B[30m ${string} \x1B[0m',
-    green: '\x1B[40m\x1B[32m ${string} \x1B[0m',
+    green: '\x1B[42m\x1B[30m ${string} \x1B[0m',
 }
 
 module.exports = class LogAPI {
@@ -14,6 +20,10 @@ module.exports = class LogAPI {
 
     _log(str) {
         return shell.echo(str);
+    }
+
+    _getBgColorLog(str, color) {
+        return BgColorEnums[color].replace(/\${string}/, str);
     }
 
     _getColorLog(str, color) {

@@ -6,15 +6,15 @@ class Log extends LogAPI {
     }
 
     warning(str) {
-        return this._log(this._getColorLog('WARNING', 'yellow') + str);
+        return this._log(this._getBgColorLog('WARNING', 'yellow') + str);
     }
 
     error(str) {
-        return this._log(this._getColorLog('ERROR', 'red') + str);
+        return this._log(this._getBgColorLog('ERROR', 'red') + str);
     }
 
-    logYellow(str) {
-        return this._log(this._getColorLog(str, 'yellow'));
+    logBgYellow(str) {
+        return this._log(this._getBgColorLog(str, 'yellow'));
     }
 
     logGreen(str) {
