@@ -1,4 +1,4 @@
 module.exports = {
     fileName: '.elfin.external.js',
-    wcxUIProxy: '.ui-proxy.js',
+    wcxUIProxy: '.ui.detect.js',
 }
