@@ -20,6 +20,12 @@ module.exports = class Ejs extends EjsAPI {
             __outName: '.elfin.external.js',
         });
 	}
+
+	renderUIDetect() {
+		return this._renderByTempalte('templates/wcn/.ui.detect.ejs', {
+            __outName: '.ui.detect.js',
+        });
+	}
 }
 
 function firstUpperCase(str) {
