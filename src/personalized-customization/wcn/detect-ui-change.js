@@ -1,5 +1,3 @@
-// const inquirer = require('inquirer');
-// const Ejs = require('../../../utils/ejs');
 const shell = require('shelljs');
 const execSync = require('child_process').execSync; //同步子进程
 const ShellUtil = require('../../../utils/shell');
@@ -26,10 +24,11 @@ module.exports = async function detectUIChange() {
     const diffStr = execSync('git diff --stat master origin/master').toString().trim();
     const diffArr = diffStr.match(/dist.*(.json|.wxml|.wxss|.js)/g);
 
+    logUtil.log('以下文件存在变动，请及时同步')
     for (let item of diffArr) {
         const proxy = config.proxy.find(e => e.source === item)
         if (proxy) {
-            logUtil.logGreen(`文件: ${proxy.target} 存在变动，请及时同步，UI映射: ${config.uiRepoAddress}/${proxy.source}`);
+            logUtil.logGreen(`业务文件: ${proxy.target} | UI文件: ${config.uiRepoAddress}/${proxy.source}`);
         }
     }
 };
