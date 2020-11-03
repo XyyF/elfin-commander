@@ -49,6 +49,12 @@ npm install husky --save-dev
 ## docs命令
 用以查看常用的文档信息
 
+## pc命令 (Personalized-customization
+杂散的个人命令，通过控制台交互式的方式来完成相应的功能
+
+```bash
+日历ics 生成ics日历文件，可以快速的在系统日历中新建日程 
+```
 
 
 // TODO 参考Vant-cli使用TS改造
