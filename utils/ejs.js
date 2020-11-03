@@ -26,6 +26,13 @@ module.exports = class Ejs extends EjsAPI {
             __outName: '.ui.detect.js',
         });
 	}
+
+	renderICS(options) {
+		return this._renderByTempalte('templates/canledar/base.ejs', Object.assign({
+			__outName: '.ics',
+			uid: `elfincmd_${Date.now()}`,
+		}, options));
+	}
 }
 
 function firstUpperCase(str) {

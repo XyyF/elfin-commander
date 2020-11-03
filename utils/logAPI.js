@@ -18,8 +18,8 @@ const BgColorEnums = {
 module.exports = class LogAPI {
     constructor() {}
 
-    _log(str) {
-        return shell.echo(str);
+    _log(...strs) {
+        return shell.echo(...strs);
     }
 
     _getBgColorLog(str, color) {
