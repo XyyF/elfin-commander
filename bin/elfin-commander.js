@@ -2,9 +2,11 @@
 
 var program = require('commander')
 var version = require('../package.json').version
+var inquirer = require('inquirer')
 
 // var initCommand = require('../src/external/init')
 // var installCommand = require('../src/external/install')
+inquirer.registerPrompt('datetime', require('inquirer-datepicker-prompt'))
 
 program
     .version(version)
