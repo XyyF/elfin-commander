@@ -5,7 +5,7 @@ const shell = require('shelljs');
 const fs = require('fs');
 const logUtil = require('../../utils/log');
 const { fileName } = require('../../utils/enums');
-const Ejs = require('../../utils/ejs');
+const ejs = require('../../utils/ejs');
 
 async function init() {
     shell.echo('start elfincmd external init');
@@ -13,7 +13,6 @@ async function init() {
     if (fs.existsSync(fileName)) {
         logUtil.warning('external init file exist');
     } else {
-        const ejs = new Ejs();
         ejs.renderExternal();
 
         shell.echo(`external init file: ${fileName}`);

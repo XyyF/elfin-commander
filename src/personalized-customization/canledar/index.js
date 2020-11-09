@@ -3,7 +3,7 @@
  */
 const inquirer = require('inquirer');
 const logUtil = require('../../../utils/log');
-const Ejs = require('../../../utils/ejs');
+const ejs = require('../../../utils/ejs');
 
 async function canledar() {
   logUtil.log('start elfincmd pc canledar');
@@ -39,7 +39,6 @@ async function canledar() {
   ]);
 
   // 创建ICS文件
-  const ejs = new Ejs();
   ejs.renderICS({
     description,
     dtStamp: formatDate(null),

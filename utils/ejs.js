@@ -1,17 +1,12 @@
 const EjsAPI = require('./ejsAPI');
 
-module.exports = class Ejs extends EjsAPI {
-	fileName = '';
+class Ejs extends EjsAPI {
+	constructor() {}
 
-	constructor(options = {}) {
-		super();
-		this.fileName = options.fileName;
-	}
-
-	renderWcnPage() {
+	renderWcnPage(fileName) {
 		return this._renderByTempalte('templates/wcn/page.ejs', {
-			PageName: firstUpperCase(this.fileName),
-			__outName: `${this.fileName}.js`,
+			PageName: firstUpperCase(fileName),
+			__outName: `${fileName}.js`,
 		});
 	}
 
@@ -38,3 +33,5 @@ module.exports = class Ejs extends EjsAPI {
 function firstUpperCase(str) {
 	return str.replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
 }
+
+module.exports = new Ejs();

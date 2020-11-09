@@ -2,7 +2,7 @@ const shell = require('shelljs');
 const fs = require('fs');
 const { wcxUIDetect } = require('../../../utils/enums');
 const logUtil = require('../../../utils/log');
-const Ejs = require('../../../utils/ejs');
+const ejs = require('../../../utils/ejs');
 
 // 新建.ui.detect.js文件
 module.exports = async function newUIDetect() {
@@ -11,7 +11,6 @@ module.exports = async function newUIDetect() {
     if (fs.existsSync(wcxUIDetect)) {
         logUtil.warning('init file exist');
     } else {
-        const ejs = new Ejs();
         ejs.renderUIDetect();
 
         shell.echo(`init file: ${wcxUIDetect}`);
