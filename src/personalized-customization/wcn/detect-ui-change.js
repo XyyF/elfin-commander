@@ -2,7 +2,7 @@ const fs = require('fs');
 const shell = require('shelljs');
 const path = require('path');
 const execSync = require('child_process').execSync; //同步子进程
-const ShellUtil = require('../../../utils/shell');
+const shellUtil = require('../../../utils/shell');
 const { wcxUIDetect } = require('../../../utils/enums');
 const logUtil = require('../../../utils/log');
 const { validateUIProxy } = require('../../../utils/config-vlidator');
@@ -11,7 +11,6 @@ const { validateUIProxy } = require('../../../utils/config-vlidator');
 module.exports = async function detectUIChange() {
     logUtil.log('elfincmd pc detectUI start');
     // 获取到配置文件
-    const shellUtil = new ShellUtil();
     /**
      * uiRepoAddress UI仓库地址
      * proxy UI仓库文件映射

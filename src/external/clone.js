@@ -3,7 +3,7 @@
  */
 const shell = require('shelljs');
 const { getRepoFromSource } = require('../../utils/git');
-const ShellUtil = require('../../utils/shell');
+const shellUtil = require('../../utils/shell');
 const logUtil = require('../../utils/log');
 const { validate } = require('../../utils/config-vlidator');
 const { fileName } = require('../../utils/enums');
@@ -12,7 +12,6 @@ function clone() {
     shell.echo('start elfincmd external clone');
 
     // 获取到配置文件
-    const shellUtil = new ShellUtil();
     const configs = shellUtil.requireFileFromScriptRoot(fileName);
     validate(configs);
     // 回退目录

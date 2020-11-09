@@ -3,7 +3,7 @@
  */
 const ShellAPI = require('./shellAPI');
 
-module.exports = class Shell extends ShellAPI {
+class Shell extends ShellAPI {
     constructor() {
         super();
     }
@@ -28,3 +28,5 @@ module.exports = class Shell extends ShellAPI {
         return this._writeFile(this._getCurrentPath(relativePath), template);
     }
 }
+
+module.exports = new Shell();

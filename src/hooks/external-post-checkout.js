@@ -1,5 +1,5 @@
 const shell = require('shelljs');
-const ShellUtil = require('../../utils/shell');
+const shellUtil = require('../../utils/shell');
 // const logUtil = require('../../utils/log');
 const { fileName } = require('../../utils/enums');
 
@@ -13,7 +13,6 @@ module.exports = function postCheckout(options) {
     if (checkoutType === '0') return;
 
      // 获取到配置文件
-     const shellUtil = new ShellUtil();
      const configs = shellUtil.requireFileFromElfinRoot(fileName);
      validate(configs);
 
