@@ -2,7 +2,7 @@ const LogAPI = require('./logAPI');
 
 class Log extends LogAPI {
     constructor() {
-        super()
+        super();
     }
 
     warning(str) {

@@ -1,7 +1,9 @@
 const EjsAPI = require('./ejsAPI');
 
 class Ejs extends EjsAPI {
-	constructor() {}
+	constructor() {
+		super();
+	}
 
 	renderWcnPage(fileName) {
 		return this._renderByTempalte('templates/wcn/page.ejs', {
