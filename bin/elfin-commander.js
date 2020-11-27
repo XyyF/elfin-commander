@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
-var program = require('commander')
-var version = require('../package.json').version
-var inquirer = require('inquirer')
+const program = require('commander');
+const version = require('../package.json').version;
+const inquirer = require('inquirer');
 
 // var initCommand = require('../src/external/init')
 // var installCommand = require('../src/external/install')
-inquirer.registerPrompt('datetime', require('inquirer-datepicker-prompt'))
+inquirer.registerPrompt('datetime', require('inquirer-datepicker-prompt'));
 
 program
     .version(version)
-    .usage('<command> [options]')
+    .usage('<command> [options]');
 
 /**
  * multirepo 工程联合方法
@@ -36,7 +36,7 @@ program
     .command('hooks <hookName>')
     .description('external multirepo同步依赖工程分支状态')
     .action((hookName, cmd) => {
-        const options = cleanArgs(cmd)
+        const options = cleanArgs(cmd);
         require('../src/hooks')(hookName, options);
     })
     .on('--help', function () {
@@ -68,19 +68,19 @@ program
         console.log('');
     });
 
-program.parse(process.argv)
+program.parse(process.argv);
 
 // commander passes the Command object itself as options,
 // extract only actual options into a fresh object.
 function cleanArgs(cmd) {
-    const args = {}
+    const args = {};
     cmd.options.forEach(o => {
-        const key = o.long.replace(/^--/, '')
+        const key = o.long.replace(/^--/, '');
         // if an option is not present and Command has a method with the same name
         // it should not be copied
         if (typeof cmd[key] !== 'function' && typeof cmd[key] !== 'undefined') {
-            args[key] = cmd[key]
+            args[key] = cmd[key];
         }
-    })
-    return args
-}  
+    });
+    return args;
+}

@@ -17,7 +17,7 @@ function clone() {
     // 回退目录
     shell.cd('..');
 
-    for (let config of configs) {
+    for (const config of configs) {
         const name = getRepoFromSource(config.sshAddress);
         // 是否已经init
         if (!shell.test('-d', name)) {
@@ -39,4 +39,4 @@ function clone() {
     shell.echo('end elfincmd external clone');
 }
 
-module.exports = clone
+module.exports = clone;

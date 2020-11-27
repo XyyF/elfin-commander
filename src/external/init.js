@@ -25,5 +25,5 @@ module.exports = (...args) => {
     return init(...args).catch((err) => {
         logUtil.error(`external init error: ${err}`);
         process.exit(1);
-    })
-}
+    });
+};

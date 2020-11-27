@@ -25,7 +25,7 @@ async function docs() {
     ]);
 
     if (action === ExteDocsCommand.CMH) {
-        commitHelp()
+        commitHelp();
     }
 
     shell.echo('end elfincmd docs');

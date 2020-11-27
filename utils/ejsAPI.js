@@ -18,4 +18,4 @@ module.exports = class EjsAPI {
         // 写内容到文件中
         return shellUtil.writeFlieFromScript(renderData.__outName, transData);
     }
-}
+};

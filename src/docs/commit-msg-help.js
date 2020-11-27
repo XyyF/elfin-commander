@@ -1,7 +1,7 @@
 const logUtil = require('../../utils/log');
 
 module.exports = function commitMsg() {
-    logUtil.logBgYellow('Allowed Types:')
+    logUtil.logBgYellow('Allowed Types:');
     logUtil.log(`
     - fix      修复bug
     - feat     完成需求
@@ -14,4 +14,4 @@ module.exports = function commitMsg() {
     - refactor 重构代码
     - Merge branch 'foo' into 'bar'
     `);
-}
+};

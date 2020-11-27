@@ -10,7 +10,7 @@ const ExteHooksCommand = {
     CM: 'commit-msg',
 };
 
-function hooks(command, options) {
+function hooks(command) {
     shell.echo(`start elfincmd hooks, command=${command}`);
 
     if (command === ExteHooksCommand.EPC) {

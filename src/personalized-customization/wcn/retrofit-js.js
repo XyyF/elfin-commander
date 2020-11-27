@@ -15,7 +15,3 @@ module.exports = async function retrofitJs() {
 
 	ejs.renderWcnPage(action);
 };
-
-function firstUpperCase(str) {
-	return str.replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
-}

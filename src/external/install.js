@@ -9,14 +9,14 @@ const { fileName } = require('../../utils/enums');
 
 function install() {
     shell.echo('start elfincmd external install');
-  
+
     // 获取到配置文件
     const configs = shellUtil.requireFileFromScriptRoot(fileName);
     validate(configs);
     // 回退目录
     shell.cd('..');
 
-    for (let config of configs) {
+    for (const config of configs) {
         if (config.skipInstall) continue;
 
         const name = getRepoFromSource(config.sshAddress);

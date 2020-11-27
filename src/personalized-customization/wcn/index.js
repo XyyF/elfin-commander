@@ -5,7 +5,7 @@ const retrofitJs = require('./retrofit-js');
 const detectUIChange = require('./detect-ui-change');
 const newUIDetect = require('./new-ui-detect');
 
-module.exports = async function create(options) {
+module.exports = async function create() {
     shell.echo('start elfincmd pc wcn');
 
     const { action } = await inquirer.prompt([
@@ -31,4 +31,4 @@ module.exports = async function create(options) {
     }
 
     shell.echo('end elfincmd pc wcn');
-}
+};

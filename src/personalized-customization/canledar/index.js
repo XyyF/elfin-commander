@@ -52,7 +52,7 @@ async function canledar() {
 module.exports = canledar;
 
 // DTSTAMP
-const pad = n => n < 10 ? `0${n}` : `${n}`
+const pad = n => n < 10 ? `0${n}` : `${n}`;
 
 function formatDate(date) {
   const outDate = date || new Date(new Date().setUTCSeconds(0, 0));

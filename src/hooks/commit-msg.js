@@ -10,7 +10,7 @@ module.exports = function commitMsg() {
   shell.echo('start elfincmd hooks commit-msg');
 
   const gitParams = process.env.HUSKY_GIT_PARAMS;
-  const commitMsg = shellUtil.loadFileFromElfinRoot(gitParams);
+  const commitMsg = shellUtil.loadFlieFromScript(gitParams);
 
   if (!commitRE.test(commitMsg) && !mergeRE.test(commitMsg)) {
     logUtil.error(`invalid commit message: "${commitMsg}".
@@ -32,6 +32,6 @@ module.exports = function commitMsg() {
   `);
     process.exit(1);
   }
-  
+
   shell.echo('end elfincmd hooks commit-msg');
-}
+};

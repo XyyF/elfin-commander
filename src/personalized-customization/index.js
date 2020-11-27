@@ -24,9 +24,9 @@ async function pc() {
     ]);
 
     if (action === 'wcn') {
-        await wcn()
+        await wcn();
     } else if (action === 'canledar') {
-        await canledar()
+        await canledar();
     }
 
     shell.echo('end elfincmd pc');

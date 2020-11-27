@@ -1,6 +1,12 @@
 ## elfin commander
 
 elfin命令行工具
+## 初始化项目
+```js
+npm link
+
+npm run elfin.init
+```
 
 ## multirepo管理
 ```bash

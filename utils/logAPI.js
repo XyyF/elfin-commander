@@ -7,13 +7,13 @@ const ColorEnums = {
     yellow: '\x1B[40m\x1B[33m ${string} \x1B[0m',
     red: '\x1B[40m\x1B[31m ${string} \x1B[0m',
     green: '\x1B[40m\x1B[32m ${string} \x1B[0m',
-}
+};
 
 const BgColorEnums = {
     yellow: '\x1B[43m\x1B[30m ${string} \x1B[0m',
     red: '\x1B[41m\x1B[30m ${string} \x1B[0m',
     green: '\x1B[42m\x1B[30m ${string} \x1B[0m',
-}
+};
 
 module.exports = class LogAPI {
     constructor() {}
@@ -29,4 +29,4 @@ module.exports = class LogAPI {
     _getColorLog(str, color) {
         return ColorEnums[color].replace(/\${string}/, str);
     }
-}
+};

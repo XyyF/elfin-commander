@@ -4,7 +4,7 @@ const shellUtil = require('../../utils/shell');
 const { fileName } = require('../../utils/enums');
 
 
-module.exports = function postCheckout(options) {
+module.exports = function postCheckout() {
     shell.echo('start elfincmd hooks external-post-checkout');
 
     const params = process.env.GIT_PARAMS.split(' ');
@@ -35,4 +35,4 @@ module.exports = function postCheckout(options) {
     // hookLog('finish checkout branch')
 
     shell.echo('end elfincmd hooks external-post-checkout');
-}
+};
