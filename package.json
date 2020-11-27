@@ -7,8 +7,8 @@
     "elfincmd": "bin/elfin-commander.js"
   },
   "scripts": {
-		"elfin.init": "elfincmd external clone && elfincmd external install",
-		"lint": "eslint ./src ./bin ./utils ./tests --ext .js,.jsx,.ts,.tsx,.vue",
+    "elfin.init": "elfincmd external clone && elfincmd external install",
+    "lint": "eslint ./src ./bin ./utils ./tests --ext .js,.jsx,.ts,.tsx,.vue",
     "test": "jest"
   },
   "repository": {
@@ -41,6 +41,7 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.14.0",
+    "eslint-plugin-import": "^2.22.1",
     "husky": "^4.3.0",
     "jest": "^26.5.3"
   }
