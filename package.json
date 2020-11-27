@@ -8,7 +8,7 @@
   },
   "scripts": {
 		"elfin.init": "elfincmd external clone && elfincmd external install",
-    "eslint": "eslint .",
+		"lint": "eslint ./src ./bin ./utils ./tests --ext .js,.jsx,.ts,.tsx,.vue",
     "test": "jest"
   },
   "repository": {
