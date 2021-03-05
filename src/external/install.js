@@ -7,14 +7,21 @@ const shellUtil = require('../../utils/shell');
 const {validate} = require('../../utils/config-vlidator');
 const { fileName } = require('../../utils/enums');
 
-function install() {
+function install(options) {
     shell.echo('start elfincmd external install');
 
     // 获取到配置文件
     const configs = shellUtil.requireFileFromScriptRoot(fileName);
     validate(configs);
-    // 回退目录
-    shell.cd('..');
+
+    if (options.multi) {
+        // 回退目录
+        shell.cd('..');
+    } else if (options.mono) {
+        shell.cd('./externals');
+    } else {
+        throw new Error('错误的options选项');
+    }
 
     for (const config of configs) {
         if (config.skipInstall) continue;

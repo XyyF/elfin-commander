@@ -13,13 +13,14 @@ const ExteErnalCommand = {
     Install: 'install',
 };
 
-function external(command) {
+function external(command, options) {
     shell.echo(`start elfincmd external, command=${command}`);
+    shell.echo(`multi=${options.multi}, mono=${options.mono}`);
 
     if (command === ExteErnalCommand.Clone) {
-        cloneShell();
+        cloneShell(options);
     } else if (command === ExteErnalCommand.Install) {
-        installShell();
+        installShell(options);
     } else if (command === ExteErnalCommand.Init) {
         initShell();
     } else {

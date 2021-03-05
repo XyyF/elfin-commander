@@ -20,8 +20,10 @@ program
 program
     .command('external <command-name>')
     .description('external multirepo工程初始化方法')
-    .action((command) => {
-        require('../src/external')(command);
+    .option('--multi', 'multirepo')
+    .option('--mono', 'monorepo')
+    .action((command, options) => {
+        require('../src/external')(command, options);
     })
     .on('--help', function () {
         console.log('');

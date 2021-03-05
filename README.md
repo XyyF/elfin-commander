@@ -1,27 +1,23 @@
 ## elfin commander
 
 elfin命令行工具
-## 初始化项目
-```js
-npm link
 
-npm run elfin.init
+## 安装
+```js
+npm install elfincmd -g
 ```
 
 ## multirepo管理
 ```bash
 # multirepo工程配置文件初始化
-elfincmd external init
+elfincmd external init --multi
 
 # multirepo相关工程克隆
-elfincmd external clone
+elfincmd external clone --multi
 
 # multirepo相关工程依赖加载
-elfincmd external install
-```
+elfincmd external install --multi
 
-目录展示
-```js
 - 主工程
     - .elfin.external.js
 
@@ -31,7 +27,38 @@ elfincmd external install
     - .elfin.external.js
 - 依赖工程1
 - 依赖工程2
-- ...
+
+# monorepo工程配置文件初始化
+elfincmd external init --mono
+
+# monorepo相关工程克隆
+elfincmd external clone --mono
+
+# monorepo相关工程依赖加载
+elfincmd external install --mono
+```
+
+## monorepo管理
+```bash
+# monorepo工程配置文件初始化
+elfincmd external init --mono
+
+# monorepo相关工程克隆
+elfincmd external clone --mono
+
+# monorepo相关工程依赖加载
+elfincmd external install --mono
+
+- 主工程
+    - .elfin.external.js
+
+=> elfincmd初始化
+
+- 主工程
+    - externals
+        - 依赖工程1
+        - 依赖工程2
+    - .elfin.external.js
 ```
 
 ## hooks命令
@@ -62,6 +89,12 @@ npm install husky --save-dev
 日历ics 生成ics日历文件，可以快速的在系统日历中新建日程 
 ```
 
+## 参与研发
+```js
+npm link
+
+npm run elfin.init
+```
 
 // TODO 参考Vant-cli使用TS改造
 // TODO globby多文件模板文件构建
