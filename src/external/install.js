@@ -7,7 +7,7 @@ const shellUtil = require('../../utils/shell');
 const {validate} = require('../../utils/config-vlidator');
 const { fileName } = require('../../utils/enums');
 
-function install(options) {
+async function install(options) {
     shell.echo('start elfincmd external install');
 
     // 获取到配置文件
@@ -44,4 +44,9 @@ function install(options) {
     shell.echo('end elfincmd external install');
 }
 
-module.exports = install;
+module.exports = (...args) => {
+    return install(...args).catch((err) => {
+        logUtil.error(`external install error: ${err}`);
+        process.exit(1);
+    });
+};

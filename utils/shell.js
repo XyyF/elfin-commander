@@ -1,6 +1,7 @@
 /**
  * Created by rengar on 2020/6/17.
  */
+const fs = require('fs');
 const ShellAPI = require('./shellAPI');
 
 class Shell extends ShellAPI {
@@ -26,6 +27,20 @@ class Shell extends ShellAPI {
 
     writeFlieFromScript(relativePath, template) {
         return this._writeFile(this._getCurrentPath(relativePath), template);
+    }
+
+    rmDir(filePath) {
+        const files = fs.readdirSync(filePath);
+        files.forEach((file) => {
+          const nextFilePath = `${filePath}/${file}`;
+          const states = fs.statSync(nextFilePath);
+          if (states.isDirectory()) {
+            this.rmDir(nextFilePath);
+          } else {
+            fs.unlinkSync(nextFilePath);
+          }
+        });
+        fs.rmdirSync(filePath);
     }
 }
 

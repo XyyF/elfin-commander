@@ -7,7 +7,11 @@ elfin命令行工具
 npm install elfincmd -g
 ```
 
-## multirepo管理
+## 工程管理方案
+不同于Lerna将所有的依赖包代码放入同一工程，elfincmd思路是将依赖包当做单独的工程，多工程之间进行协作
+
+### multirepo管理
+1. 可执行命令列表
 ```bash
 # multirepo工程配置文件初始化
 elfincmd external init --multi
@@ -17,7 +21,10 @@ elfincmd external clone --multi
 
 # multirepo相关工程依赖加载
 elfincmd external install --multi
+```
 
+2. 工程结构总览
+```bash
 - 主工程
     - .elfin.external.js
 
@@ -27,7 +34,11 @@ elfincmd external install --multi
     - .elfin.external.js
 - 依赖工程1
 - 依赖工程2
+```
 
+### monorepo管理
+1. 可执行命令列表
+```bash
 # monorepo工程配置文件初始化
 elfincmd external init --mono
 
@@ -38,17 +49,8 @@ elfincmd external clone --mono
 elfincmd external install --mono
 ```
 
-## monorepo管理
+2. 工程结构总览
 ```bash
-# monorepo工程配置文件初始化
-elfincmd external init --mono
-
-# monorepo相关工程克隆
-elfincmd external clone --mono
-
-# monorepo相关工程依赖加载
-elfincmd external install --mono
-
 - 主工程
     - .elfin.external.js
 
@@ -62,6 +64,7 @@ elfincmd external install --mono
 ```
 
 ## hooks命令
+监听git交互行为，做出相应的patch逻辑
 
 ### commit-msg命令
 ```bash
@@ -96,5 +99,6 @@ npm link
 npm run elfin.init
 ```
 
-// TODO 参考Vant-cli使用TS改造
-// TODO globby多文件模板文件构建
+## 计划
+1. 参考Vant-cli使用TS改造
+2. globby多文件模板文件构建
