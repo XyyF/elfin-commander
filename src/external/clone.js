@@ -27,7 +27,7 @@ async function clone(options) {
         }
         shell.cd('./externals');
     } else {
-        throw new Error('错误的options选项');
+        return Promise.reject('错误的options选项');
     }
 
     // clone相关文件

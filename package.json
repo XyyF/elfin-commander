@@ -36,9 +36,13 @@
     }
   },
   "files": [
-    "bin"
+    "bin",
+    "src",
+    "templates",
+    "utils"
   ],
   "devDependencies": {
+    "@types/jest": "^26.0.21",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.14.0",
     "eslint-plugin-import": "^2.22.1",

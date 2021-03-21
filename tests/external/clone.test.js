@@ -26,9 +26,5 @@ describe('elfincmd external clone ', () => {
       // 回退文件目录
       shell.cd('..');
     });
-
-    it('已经存在依赖项目', async () => {
-
-    });
   });
 });
