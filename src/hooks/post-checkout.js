@@ -5,11 +5,10 @@ const { fileName } = require('../../utils/enums');
 
 
 module.exports = function postCheckout() {
-    shell.echo('start elfincmd hooks external-post-checkout');
+    shell.echo('start elfincmd hooks_post-checkout');
 
     const params = process.env.GIT_PARAMS.split(' ');
     const checkoutType = params[2];
-
     if (checkoutType === '0') return;
 
      // 获取到配置文件
@@ -34,5 +33,5 @@ module.exports = function postCheckout() {
     // shell.cd('..')
     // hookLog('finish checkout branch')
 
-    shell.echo('end elfincmd hooks external-post-checkout');
+    shell.echo('end elfincmd hooks_post-checkout');
 };

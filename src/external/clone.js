@@ -44,7 +44,9 @@ async function clone(options) {
                 // clone
                 result = shell.exec(`git clone ${config.sshAddress}`);
             }
-            // 输出错误日志
+            // 提示错误日志
+            // 1. ssh地址不存在
+            // 2. 分支不存在
             if (result && result.code != 0) {
                 logUtil.error(result.stderr);
             }
