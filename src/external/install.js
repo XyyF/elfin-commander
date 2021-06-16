@@ -38,7 +38,11 @@ async function install(options) {
             shell.cd(name);
             shell.echo(`external_install: start install [${name}]`);
             // clone
-            shell.exec('npm install');
+            const result = shell.exec('npm install');
+            // 提示错误日志
+            if (result && result.code != 0) {
+                logUtil.error(result.stderr);
+            }
             shell.echo(`external_install: finish install [${name}]`);
             // 回退目录
             shell.cd('..');

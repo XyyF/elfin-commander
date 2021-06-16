@@ -30,10 +30,10 @@ async function clone(options) {
         return Promise.reject('错误的options选项');
     }
 
-    // clone相关文件
+    // clone相关工程
     for (const config of configs) {
         const name = getRepoFromSource(config.sshAddress);
-        // 是否已经init
+        // 是否工程已经存在
         if (!shell.test('-d', name)) {
             shell.echo(`[start] clone [${name}]`);
             let result = '';
