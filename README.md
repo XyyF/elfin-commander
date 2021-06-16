@@ -94,11 +94,18 @@ npm install husky --save-dev
 
 ## 参与研发
 ```js
-npm link
+npm link // npm链接本地项目
 
-npm run elfin.init
+npm run elfin.init // 初始化项目
 
 elfincmd -h // 查看帮助信息
+
+npm publish --access=public // 发布项目
+
+// 因taobao镜像源导致发布失败，可以先切换为npmjs源
+npm config set registry https://registry.npmjs.org/
+// 切换回
+npm config set http://registry.npm.taobao.org/
 ```
 
 ## 计划
