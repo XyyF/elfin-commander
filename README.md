@@ -14,13 +14,13 @@ npm install elfincmd -g
 1. 可执行命令列表
 ```bash
 # multirepo工程配置文件初始化
-elfincmd external init --multi
+elfincmd external init
 
 # multirepo相关工程克隆
-elfincmd external clone --multi
+elfincmd external clone
 
 # multirepo相关工程依赖加载
-elfincmd external install --multi
+elfincmd external install
 ```
 
 2. 工程结构总览
@@ -104,3 +104,5 @@ elfincmd -h // 查看帮助信息
 ## 计划
 1. 参考Vant-cli使用TS改造
 2. globby多文件模板文件构建
+3. hooks_checkout切换分支
+4. hooks_pull更新代码

@@ -6,7 +6,7 @@ const commitMsgShell = require('./commit-msg');
 const logUtil = require('../../utils/log');
 
 const ExteHooksCommand = {
-    EPC: 'external-post-checkout',
+    EPC: 'post-checkout',
     CM: 'commit-msg',
 };
 
@@ -18,10 +18,10 @@ function hooks(command) {
     } else if (command === ExteHooksCommand.CM) {
         commitMsgShell();
     } else {
-        logUtil.warning(`不存在的命令: command=${command}`);
+        logUtil.error(`不存在的命令: command=${command}`);
     }
 
-    shell.echo(`end elfincmd hooks ${command}`);
+    shell.echo(`end elfincmd hooks, command=${command}`);
 };
 
 module.exports = hooks;

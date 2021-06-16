@@ -7,7 +7,7 @@ const mergeRE = /Merge /;
 
 
 module.exports = function commitMsg() {
-  shell.echo('start elfincmd hooks commit-msg');
+  shell.echo('start elfincmd hooks_commit-msg');
 
   const gitParams = process.env.HUSKY_GIT_PARAMS;
   const commitMsg = shellUtil.loadFlieFromScript(gitParams);
@@ -33,5 +33,5 @@ module.exports = function commitMsg() {
     process.exit(1);
   }
 
-  shell.echo('end elfincmd hooks commit-msg');
+  shell.echo('end elfincmd hooks_commit-msg');
 };

@@ -44,8 +44,8 @@ program
     .on('--help', function () {
         console.log('');
         console.log('hook-name:');
-        console.log(' $ external-post-checkout   before切换分支,同步依赖工程分支');
-        console.log(' $ commit-msg               before提交commit注释');
+        console.log(' $ post-checkout   before切换分支,同步依赖工程分支');
+        console.log(' $ commit-msg      before提交commit注释');
         console.log('');
     });
 
