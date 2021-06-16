@@ -8,17 +8,17 @@ const { fileName } = require('../../utils/enums');
 const ejs = require('../../utils/ejs');
 
 async function init() {
-    shell.echo('start elfincmd external init');
+    shell.echo('start elfincmd external_init');
 
     if (fs.existsSync(fileName)) {
-        logUtil.warning('external init file exist');
+        logUtil.warning('external_init file exist');
     } else {
         ejs.renderExternal();
 
-        shell.echo(`external init file: ${fileName}`);
+        shell.echo(`external_init file: ${fileName}`);
     }
 
-    shell.echo('end elfincmd external init');
+    shell.echo('end elfincmd external_init');
 }
 
 module.exports = (...args) => {

@@ -1,13 +1,13 @@
 {
   "name": "@elfiner/commander",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "bin": {
     "elfincmd": "bin/elfin-commander.js"
   },
   "scripts": {
-    "elfin.init": "elfincmd external clone --multi && elfincmd external install --multi",
+    "elfin.init": "elfincmd external clone && elfincmd external install",
     "lint": "eslint ./src ./bin ./utils ./tests --ext .js,.jsx,.ts,.tsx,.vue",
     "test": "jest"
   },

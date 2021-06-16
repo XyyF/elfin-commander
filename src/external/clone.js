@@ -11,7 +11,7 @@ const { validate } = require('../../utils/config-vlidator');
 const { fileName } = require('../../utils/enums');
 
 async function clone(options) {
-    shell.echo('start elfincmd external clone');
+    shell.echo('start elfincmd external_clone');
     const dirname = path.basename(path.resolve());
 
     // 获取到配置文件
@@ -35,16 +35,20 @@ async function clone(options) {
         const name = getRepoFromSource(config.sshAddress);
         // 是否已经init
         if (!shell.test('-d', name)) {
-            shell.echo(`start clone [${name}]`);
-
+            shell.echo(`[start] clone [${name}]`);
+            let result = '';
             if (config.branch) {
                 // clone & branch
-                shell.exec(`git clone -b ${config.branch} ${config.sshAddress}`);
+                result = shell.exec(`git clone -b ${config.branch} ${config.sshAddress}`);
             } else {
                 // clone
-                shell.exec(`git clone ${config.sshAddress}`);
+                result = shell.exec(`git clone ${config.sshAddress}`);
             }
-            shell.echo(`finish clone [${name}]`);
+            // 输出错误日志
+            if (result && result.code != 0) {
+                logUtil.error(result.stderr);
+            }
+            shell.echo(`[finish] clone [${name}]`);
         } else {
             logUtil.warning(`依赖工程 [${name}] 已经存在`);
         }
@@ -57,7 +61,7 @@ async function clone(options) {
         shell.cd('..');
     }
 
-    shell.echo('end elfincmd external clone');
+    shell.echo('end elfincmd external_clone');
 }
 
 module.exports = (...args) => {

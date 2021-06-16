@@ -97,6 +97,8 @@ npm install husky --save-dev
 npm link
 
 npm run elfin.init
+
+elfincmd -h // 查看帮助信息
 ```
 
 ## 计划

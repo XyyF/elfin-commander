@@ -15,7 +15,11 @@ const ExteErnalCommand = {
 
 function external(command, options) {
     shell.echo(`start elfincmd external, command=${command}`);
-    shell.echo(`multi=${options.multi}, mono=${options.mono}`);
+    // 默认使用multi mode
+    if (!options.multi && !options.mono) {
+        options.multi = true;
+    }
+    shell.echo(`可选参数：multi=${options.multi}, mono=${options.mono}`);
 
     if (command === ExteErnalCommand.Clone) {
         cloneShell(options);
@@ -24,10 +28,10 @@ function external(command, options) {
     } else if (command === ExteErnalCommand.Init) {
         initShell();
     } else {
-        logUtil.warning(`不存在的命令: command=${command}`);
+        logUtil.error(`不存在的命令: command=${command}`);
     }
 
-    shell.echo(`end elfincmd external ${command}`);
+    shell.echo(`end elfincmd external, command=${command}`);
 };
 
 module.exports = external;
