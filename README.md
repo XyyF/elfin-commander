@@ -4,7 +4,7 @@ elfin命令行工具
 
 ## 安装
 ```js
-npm install elfincmd -g
+npm install @elfiner/commander -g
 ```
 
 ## 工程管理方案
