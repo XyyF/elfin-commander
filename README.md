@@ -10,7 +10,7 @@ npm install @elfiner/commander -g
 ## 工程管理方案
 不同于Lerna将所有的依赖包代码放入同一工程，elfincmd思路是将依赖包当做单独的工程，多工程之间进行协作
 
-### multirepo管理
+### multirepo管理（默认）
 1. 可执行命令列表
 ```bash
 # multirepo工程配置文件初始化

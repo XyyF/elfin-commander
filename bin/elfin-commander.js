@@ -4,8 +4,7 @@ const program = require('commander');
 const version = require('../package.json').version;
 const inquirer = require('inquirer');
 
-// var initCommand = require('../src/external/init')
-// var installCommand = require('../src/external/install')
+// elfincmd pc canledar 使用
 inquirer.registerPrompt('datetime', require('inquirer-datepicker-prompt'));
 
 program

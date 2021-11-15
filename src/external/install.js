@@ -32,7 +32,7 @@ async function install(options) {
             continue;
         };
 
-        // 是否已经init
+        // 是否已经clone
         if (shell.test('-d', name)) {
             // 进入项目
             shell.cd(name);

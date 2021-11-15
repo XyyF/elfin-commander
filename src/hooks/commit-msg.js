@@ -28,7 +28,7 @@ module.exports = function commitMsg() {
   - style    css相关
   - build    编译相关
   - refactor 重构代码
-  - Merge branch 'foo' into 'bar'
+  - Merge branch 'branch1' into 'branch2'
   `);
     process.exit(1);
   }

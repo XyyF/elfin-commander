@@ -14,6 +14,9 @@ function validate(configs) {
     if (Object.prototype.toString.call(configs) !== '[object Array]') {
         throw new Error('Error validate configs: 错误的数据格式');
     }
+    if (configs.length === 0) {
+        throw new Error('Error validate configs: 空数组');
+    }
     for (const config of configs) {
         validateSource(config);
     }
