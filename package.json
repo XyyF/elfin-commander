@@ -42,10 +42,9 @@
     "utils"
   ],
   "devDependencies": {
+    "@elfiner/eslint-config-elfin": "^1.0.3",
     "@types/jest": "^26.0.21",
-    "babel-eslint": "^10.1.0",
     "eslint": "^7.14.0",
-    "eslint-plugin-import": "^2.22.1",
     "husky": "^4.3.0",
     "jest": "^26.5.3"
   }
