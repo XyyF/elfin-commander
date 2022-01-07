@@ -35,7 +35,7 @@ program
 
 program
     .command('hooks <hookName>')
-    .description('external multirepo同步依赖工程分支状态')
+    .description('git hooks')
     .action((hookName, cmd) => {
         const options = cleanArgs(cmd);
         require('../src/hooks')(hookName, options);
