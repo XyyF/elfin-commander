@@ -66,6 +66,10 @@ elfincmd external install --mono
 ## hooks命令
 监听git交互行为，做出相应的patch逻辑
 
+### elfincmd hooks命令
+创建 .huskyrc 文件，进行hooks管理<br/>
+优先级：package.json husky > .huskyrc > .huskyrc.json...
+
 ### commit-msg命令
 ```bash
 elfincmd hooks commit-msg
