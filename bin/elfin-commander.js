@@ -22,7 +22,7 @@ program
     .option('--multi', 'multirepo')
     .option('--mono', 'monorepo')
     .action((command, options) => {
-        require('../src/external')(command, options);
+        require('../lib/src/external')(command, options);
     })
     .on('--help', function () {
         console.log('');
@@ -38,7 +38,7 @@ program
     .description('git hooks')
     .action((hookName, cmd) => {
         const options = cleanArgs(cmd);
-        require('../src/hooks')(hookName, options);
+        require('../lib/src/hooks')(hookName, options);
     })
     .on('--help', function () {
         console.log('');
@@ -61,7 +61,7 @@ program
     .command('docs')
     .description('docs 文档提示命令')
     .action(() => {
-        require('../src/docs')();
+        require('../lib/src/docs')();
     })
     .on('--help', function () {
         console.log('');
@@ -75,7 +75,7 @@ program.parse(process.argv);
 // extract only actual options into a fresh object.
 function cleanArgs(cmd) {
     const args = {};
-    cmd.options.forEach(o => {
+    cmd.options.forEach((o) => {
         const key = o.long.replace(/^--/, '');
         // if an option is not present and Command has a method with the same name
         // it should not be copied

@@ -1,8 +1,8 @@
-const logUtil = require('../../utils/log');
+import logUtil from '../../utils/log';
 
-module.exports = function commitMsg() {
-    logUtil.logBgYellow('Allowed Types:');
-    logUtil.log(`
+export default function commitMsg() {
+  logUtil.logBgYellow('Allowed Types:');
+  logUtil.log(`
     - fix      修复bug
     - feat     完成需求
     - docs     补充文档

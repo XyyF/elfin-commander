@@ -1,9 +1,9 @@
 /**
  * Created by rengar on 2020/11/03.
  */
-const inquirer = require('inquirer');
-const logUtil = require('../../../utils/log');
-const ejs = require('../../../utils/ejs');
+import inquirer from 'inquirer';
+import logUtil from '../../../utils/log';
+import ejs from '../../../utils/ejs';
 
 async function canledar() {
   logUtil.log('start elfincmd pc canledar');
@@ -49,12 +49,12 @@ async function canledar() {
   logUtil.log('end elfincmd pc canledar');
 };
 
-module.exports = canledar;
+export default canledar;
 
 // DTSTAMP
-const pad = n => n < 10 ? `0${n}` : `${n}`;
+const pad = (n: number) => n < 10 ? `0${n}` : `${n}`;
 
-function formatDate(date) {
+function formatDate(date: Date | null) {
   const outDate = date || new Date(new Date().setUTCSeconds(0, 0));
 
   return [

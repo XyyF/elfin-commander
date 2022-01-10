@@ -7,8 +7,10 @@
     "elfincmd": "bin/elfin-commander.js"
   },
   "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
     "elfin.init": "elfincmd external clone && elfincmd external install",
-    "lint": "eslint ./src ./bin ./utils ./tests --ext .js,.jsx,.ts,.tsx,.vue",
+    "lint": "eslint ./src ./utils --ext .js,.jsx,.ts,.tsx,.vue",
     "test": "jest"
   },
   "repository": {
@@ -37,15 +39,17 @@
   },
   "files": [
     "bin",
-    "src",
-    "templates",
-    "utils"
+    "lib"
   ],
   "devDependencies": {
     "@elfiner/eslint-config-elfin": "^1.0.3",
+    "@types/ejs": "^3.1.0",
+    "@types/inquirer": "^8.1.3",
     "@types/jest": "^26.0.21",
+    "@types/shelljs": "^0.8.10",
     "eslint": "^7.14.0",
     "husky": "^4.3.0",
-    "jest": "^26.5.3"
+    "jest": "^26.5.3",
+    "typescript": "^4.5.4"
   }
 }
