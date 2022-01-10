@@ -2,10 +2,13 @@
  * Created by rengar on 2020/10/13.
  */
 import shell from 'shelljs';
-import commitMsgShell from './commit-msg';
 import logUtil from '../../utils/log';
 
+import commitMsgShell from './commit-msg';
+import createHooks from './create-hooks';
+
 enum HookCommand {
+  NONE = 'undefined',
   EPC = 'post-checkout',
   CM = 'commit-msg',
 }
@@ -13,8 +16,8 @@ enum HookCommand {
 function hooks(command: HookCommand) {
   shell.echo(`start elfincmd hooks, command=${command}`);
 
-  if (command === HookCommand.EPC) {
-    // cloneShell();
+  if ((command + '') === HookCommand.NONE) {
+    createHooks();
   } else if (command === HookCommand.CM) {
     commitMsgShell();
   } else {

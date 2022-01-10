@@ -109,7 +109,7 @@ npm config set http://registry.npm.taobao.org/
 ```
 
 ## 计划
-1. 参考Vant-cli使用TS改造
+1. 参考Vant-cli使用TS改造 done
 2. globby多文件模板文件构建
 3. hooks_checkout切换分支
 4. hooks_pull更新代码

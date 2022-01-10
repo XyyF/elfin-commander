@@ -19,10 +19,10 @@ program
 program
     .command('external <command-name>')
     .description('external multirepo工程初始化方法')
-    .option('--multi', 'multirepo')
+    .option('--multi', 'multirepo[default]')
     .option('--mono', 'monorepo')
     .action((command, options) => {
-        require('../lib/src/external')(command, options);
+        require('../lib/src/external').default(command, options);
     })
     .on('--help', function () {
         console.log('');
@@ -34,17 +34,18 @@ program
     });
 
 program
-    .command('hooks <hookName>')
+    .command('hooks [hookName]')
     .description('git hooks')
     .action((hookName, cmd) => {
         const options = cleanArgs(cmd);
-        require('../lib/src/hooks')(hookName, options);
+        require('../lib/src/hooks').default(hookName, options);
     })
     .on('--help', function () {
         console.log('');
         console.log('hook-name:');
-        console.log(' $ post-checkout   before切换分支,同步依赖工程分支');
+        console.log(' $                 为空创建husky配置');
         console.log(' $ commit-msg      before提交commit注释');
+        console.log(' $ post-checkout   before切换分支,同步依赖工程分支');
         console.log('');
     });
 

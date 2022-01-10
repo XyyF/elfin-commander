@@ -26,6 +26,12 @@ class Ejs extends EjsAPI {
       uid: `elfincmd_${Date.now()}`,
     }, options));
   }
+
+  renderTemplate(src: string, dist: string) {
+    return this._renderByTempalte('templates/' + src, {
+      __outName: dist,
+    });
+  }
 }
 
 function firstUpperCase(str: string) {

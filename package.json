@@ -7,7 +7,7 @@
     "elfincmd": "bin/elfin-commander.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && gulp",
     "watch": "tsc --watch",
     "elfin.init": "elfincmd external clone && elfincmd external install",
     "lint": "eslint ./src ./utils --ext .js,.jsx,.ts,.tsx,.vue",
@@ -30,12 +30,6 @@
     "inquirer": "^7.3.3",
     "inquirer-datepicker-prompt": "^0.4.2",
     "shelljs": "^0.8.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "commit-msg": "elfincmd hooks commit-msg"
-    }
   },
   "files": [
     "bin",

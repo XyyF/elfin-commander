@@ -5,7 +5,7 @@ function copyDir(src, dist) {
 }
 
 function defaultTask(done) {
-  copyDir('./templates', './lib/templates');
+  copyDir('./templates', './lib');
   done();
 }
 
