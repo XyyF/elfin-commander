@@ -4,23 +4,18 @@
 import shell from 'shelljs';
 import logUtil from '../../utils/log';
 
-import commitMsgShell from './commit-msg';
-import createHooks from './create-hooks';
+import createEslint from './create-eslint';
 
 enum HookCommand {
   NONE = '',
-  EPC = 'post-checkout',
-  CM = 'commit-msg',
 }
 
 function hooks(command: HookCommand) {
   command = command || HookCommand.NONE;
-  shell.echo(`start elfincmd hooks, command=${command}`);
+  shell.echo(`start elfincmd eslint, command=${command}`);
 
   if (command === HookCommand.NONE) {
-    createHooks();
-  } else if (command === HookCommand.CM) {
-    commitMsgShell();
+    createEslint();
   } else {
     logUtil.error(`不存在的命令: command=${command}`);
   }
