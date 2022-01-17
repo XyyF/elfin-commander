@@ -1,34 +1,29 @@
 /**
  * Created by rengar on 2020/10/13.
  */
-import shell from 'shelljs';
 import inquirer from 'inquirer';
 import commitHelp from './commit-msg-help';
 
 enum DocsCommand {
-  CMH = 'commit-msg-help',
+  CommitMsgHelp = '1',
 }
 
 async function docs() {
-  shell.echo('start elfincmd docs');
-
   const { action } = await inquirer.prompt([
     {
       name: 'action',
       type: 'list',
-      message: '请选择文档类型:',
+      message: '请选择文档帮助类型:',
       choices: [
-        { name: 'git commit注释帮助', value: DocsCommand.CMH },
+        { name: 'git commit注释查看', value: DocsCommand.CommitMsgHelp },
       ],
-      default: DocsCommand.CMH,
+      default: DocsCommand.CommitMsgHelp,
     }
   ]);
 
-  if (action === DocsCommand.CMH) {
+  if (action == DocsCommand.CommitMsgHelp) {
     commitHelp();
   }
-
-  shell.echo('end elfincmd docs');
 };
 
 export default docs;

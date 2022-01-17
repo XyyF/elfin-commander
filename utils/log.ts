@@ -9,6 +9,10 @@ class Log extends LogAPI {
     return this._log(this._getBgColorLog('ERROR', 'red') + str);
   }
 
+  success(str: string) {
+    return this._log(this._getBgColorLog('SUCCESS', 'green') + str);
+  }
+
   logBgYellow(str: string) {
     return this._log(this._getBgColorLog(str, 'yellow'));
   }
