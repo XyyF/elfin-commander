@@ -1,7 +1,7 @@
 import logUtil from '../../utils/log';
 
 export default function commitMsg() {
-  logUtil.logBgYellow('Allowed Types:');
+  logUtil.success('Allowed Types:');
   logUtil.log(`
     - fix      修复bug
     - feat     完成需求
