@@ -16,7 +16,7 @@ async function clone(options: any) {
   const dirname = path.basename(path.resolve());
 
   // 获取到配置文件
-  const configs = shellUtil.requireFileFromScriptRoot(enums.fileName);
+  const configs = shellUtil.requireFileFromScriptRoot(enums.externalConfig);
   vlidator.validate(configs);
 
   // 进入相应的目录

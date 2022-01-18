@@ -10,12 +10,12 @@ import ejs from '../../utils/ejs';
 async function init() {
   shell.echo('start elfincmd external_init');
 
-  if (fs.existsSync(enums.fileName)) {
+  if (fs.existsSync(enums.externalConfig)) {
     logUtil.warning('external_init file exist');
   } else {
-    ejs.renderExternal();
+    ejs.renderTemplate(enums.externalConfigTpl, enums.externalConfig);
 
-    shell.echo(`external_init file: ${enums.fileName}`);
+    shell.echo(`external_init file: ${enums.externalConfig}`);
   }
 
   shell.echo('end elfincmd external_init');

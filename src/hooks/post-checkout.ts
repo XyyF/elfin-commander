@@ -12,7 +12,7 @@ export default function postCheckout() {
   // if (checkoutType === '0') return;
 
   // 获取到配置文件
-  //  const configs = shellUtil.requireFileFromElfinRoot(enums.fileName);
+  //  const configs = shellUtil.requireFileFromElfinRoot(enums.externalConfig);
   //  validate(configs);
 
   // const nowBranch = branch || gitUtils.getCurrentBranch()

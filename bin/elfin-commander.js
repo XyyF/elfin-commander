@@ -63,15 +63,6 @@ program
     console.log('');
   });
 
-program.command('pc')
-  .description('Personalized customization个性化定制脚本命令')
-  .action(() => {
-    require('../src/personalized-customization')();
-  })
-  .on('--help', function () {
-    console.log('');
-  });
-
 program
   .command('docs')
   .description('docs 文档提示命令')

@@ -1,5 +1,6 @@
 export default {
-  fileName: '.elfin.external.js',
+  externalConfig: '.elfin.external.js',
+  externalConfigTpl: '.elfin.external.ejs',
   wcxUIDetect: '.ui.detect.js',
   huskyFileName: '.huskyrc',
   eslintConfig: '.eslintrc.js',
