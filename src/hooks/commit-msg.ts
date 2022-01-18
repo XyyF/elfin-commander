@@ -9,7 +9,7 @@ export default function commitMsg() {
   shell.echo('start elfincmd hooks_commit-msg');
 
   const gitParams = process.env.HUSKY_GIT_PARAMS || '';
-  const commitMsg = shellUtil.loadFlieFromScript(gitParams);
+  const commitMsg = shellUtil.loadByCmdPath(gitParams);
 
   if (!commitRE.test(commitMsg) && !mergeRE.test(commitMsg)) {
     logUtil.error(`invalid commit message: "${commitMsg}".

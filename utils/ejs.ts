@@ -21,11 +21,11 @@ class Ejs {
    */
   _renderByTempalte(templatePath: string, renderData: TemplateRenderData) {
     // 读取模板内容
-    const template = shellUtil.loadFileFromElfinRoot(templatePath);
+    const template = shellUtil.loadByElfinRoot(templatePath);
     // 转化模板内容
     const transData = ejs.render(template, renderData);
     // 写内容到文件中
-    return shellUtil.writeFlieFromScript(renderData.__outName, transData);
+    return shellUtil.writeByCmdPath(renderData.__outName, transData);
   }
 }
 

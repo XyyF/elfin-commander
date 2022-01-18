@@ -58,4 +58,22 @@ export default class ShellAPI {
       throw e;
     }
   }
+
+  /**
+   * 移除文件夹
+   * @param filePath 
+   */
+  _rmDir(filePath: string) {
+    const files = fs.readdirSync(filePath);
+    files.forEach((file) => {
+      const nextFilePath = `${filePath}/${file}`;
+      const states = fs.statSync(nextFilePath);
+      if (states.isDirectory()) {
+        this._rmDir(nextFilePath);
+      } else {
+        fs.unlinkSync(nextFilePath);
+      }
+    });
+    fs.rmdirSync(filePath);
+  }
 };

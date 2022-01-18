@@ -21,7 +21,7 @@ describe('elfincmd external clone ', () => {
       const result = fs.existsSync('externals/elfin-eslint');
       // 删除相关文件 以及 文件夹
       fs.unlinkSync('.elfin.external.js');
-      shellAPI.rmDir(path.join('externals'));
+      shellAPI._rmDir(path.join('externals'));
       expect(result).toEqual(true);
       // 回退文件目录
       shell.cd('..');

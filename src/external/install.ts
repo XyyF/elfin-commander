@@ -12,7 +12,7 @@ async function install(options: any) {
   shell.echo('start elfincmd external_install');
 
   // 获取到配置文件
-  const configs = shellUtil.requireFileFromScriptRoot(enums.externalConfig);
+  const configs = shellUtil.requireByCmdPath(enums.externalConfig);
   vlidator.validate(configs);
 
   if (options.multi) {
