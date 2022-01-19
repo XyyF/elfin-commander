@@ -50,11 +50,11 @@ program
   });
 
 program
-  .command('eslint')
+  .command('eslint [lintName]')
   .description('项目eslint配置生成')
   .action((eslintName, cmd) => {
     const options = cleanArgs(cmd);
-    require('../lib/src/hooks').default(eslintName, options);
+    require('../lib/src/eslint').default(eslintName, options);
   })
   .on('--help', function () {
     console.log('');
@@ -81,7 +81,7 @@ program.parse(process.argv);
 // extract only actual options into a fresh object.
 function cleanArgs(cmd) {
   const args = {};
-  cmd.options.forEach((o) => {
+  cmd && cmd.options.forEach((o) => {
     const key = o.long.replace(/^--/, '');
     // if an option is not present and Command has a method with the same name
     // it should not be copied

@@ -1,9 +1,9 @@
 import fs from 'fs';
 import inquirer from 'inquirer';
-import logUtil from 'utils/log';
-import enums from 'utils/enums';
-import ejs from 'utils/ejs';
-import npm from 'utils/npm';
+import logUtil from '../../utils/log';
+import enums from '../../utils/enums';
+import ejs from '../../utils/ejs';
+import npm from '../../utils/npm';
 
 enum Language {
   Javascript = '1',

@@ -1,5 +1,5 @@
 import shell from 'shelljs';
-import whichPMRuns from 'which-pm-runs';
+import whichPM from 'which-pm';
 
 interface FlagInterface {
   dev?: boolean;
@@ -7,18 +7,22 @@ interface FlagInterface {
 
 class Npm {
   getPmType() {
-    const result = whichPMRuns();
-    if (result) return result.name;
-    throw new Error('错误的pm类型');
+    return new Promise((resolve) => {
+      whichPM(process.cwd()).then((pm) => {
+        resolve(pm.name);
+      }).catch((reject) => {
+        reject(new Error('错误的pm类型'));
+      });
+    });
   }
 
-  install() {
-    let pm = this.getPmType();
+  async install() {
+    let pm = await this.getPmType();
     shell.exec(`${pm} install`);
   }
 
-  installDependencies(dependencies: string, flag: FlagInterface) {
-    let pm = this.getPmType();
+  async installDependencies(dependencies: string, flag: FlagInterface) {
+    let pm = await this.getPmType();
     let flags = '';
     if (pm == 'yarn') {
       if (flag.dev) flags = '--dev';
