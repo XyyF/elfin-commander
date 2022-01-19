@@ -1,19 +1,19 @@
 import fs from 'fs';
-import shell from 'shelljs';
 import logUtil from '../../utils/log';
 import enums from '../../utils/enums';
 import ejs from '../../utils/ejs';
+import npm from '../../utils/npm';
 
 export default function createHooks() {
-  shell.echo('start elfincmd create_hooks');
-
+  // 配置文件
   if (fs.existsSync(enums.huskyConfig)) {
     logUtil.warning('external_init file exist');
   } else {
     ejs.renderTemplate(enums.huskyConfigTpl, enums.huskyConfig);
 
-    shell.echo(`external_init file: ${enums.huskyConfig}`);
+    logUtil.success(`external_init file: ${enums.huskyConfig}`);
   }
 
-  shell.echo('end elfincmd external_init');
+  // 安装依赖
+  npm.installDependencies('husky@4.3.8', { dev: true });
 }

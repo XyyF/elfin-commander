@@ -67,7 +67,7 @@ program
   .command('docs')
   .description('docs 文档提示命令')
   .action(() => {
-    require('../lib/src/docs')();
+    require('../lib/src/docs').default();
   })
   .on('--help', function () {
     console.log('');

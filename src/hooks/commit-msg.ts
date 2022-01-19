@@ -1,4 +1,3 @@
-import shell from 'shelljs';
 import shellUtil from '../../utils/shell';
 import logUtil from '../../utils/log';
 
@@ -6,8 +5,6 @@ const commitRE = /^(revert: )?(fix|feat|docs|perf|test|types|style|build|refacto
 const mergeRE = /Merge /;
 
 export default function commitMsg() {
-  shell.echo('start elfincmd hooks_commit-msg');
-
   const gitParams = process.env.HUSKY_GIT_PARAMS || '';
   const commitMsg = shellUtil.loadByCmdPath(gitParams);
 
@@ -31,6 +28,4 @@ export default function commitMsg() {
   `);
     process.exit(1);
   }
-
-  shell.echo('end elfincmd hooks_commit-msg');
 };
