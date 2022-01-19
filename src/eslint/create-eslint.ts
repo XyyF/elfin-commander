@@ -1,8 +1,9 @@
 import fs from 'fs';
 import inquirer from 'inquirer';
-import logUtil from '../../utils/log';
-import enums from '../../utils/enums';
-import ejs from '../../utils/ejs';
+import logUtil from 'utils/log';
+import enums from 'utils/enums';
+import ejs from 'utils/ejs';
+import npm from 'utils/npm';
 
 enum Language {
   Javascript = '1',
@@ -42,5 +43,6 @@ export default async function createHooks() {
     logUtil.success('模板文件.eslintrc.js生成成功');
   }
 
-  // TODO 安装依赖
+  // 安装依赖
+  npm.installDependencies('@elfiner/eslint-config-elfin', { dev: true });
 }

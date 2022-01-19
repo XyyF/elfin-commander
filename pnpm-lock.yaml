@@ -6,6 +6,7 @@ specifiers:
   '@types/inquirer': ^8.1.3
   '@types/jest': ^26.0.21
   '@types/shelljs': ^0.8.10
+  '@types/which-pm-runs': ^1.0.0
   commander: ^5.1.0
   ejs: ^3.1.5
   eslint: ^7.14.0
@@ -17,6 +18,7 @@ specifiers:
   jest: ^26.5.3
   shelljs: ^0.8.4
   typescript: ^4.5.4
+  which-pm-runs: ^1.0.0
 
 dependencies:
   commander: 5.1.0
@@ -25,6 +27,7 @@ dependencies:
   inquirer: 7.3.3
   inquirer-datepicker-prompt: 0.4.2
   shelljs: 0.8.5
+  which-pm-runs: 1.0.0
 
 devDependencies:
   '@elfiner/eslint-config-elfin': 1.0.5
@@ -32,6 +35,7 @@ devDependencies:
   '@types/inquirer': 8.1.3
   '@types/jest': 26.0.24
   '@types/shelljs': 0.8.10
+  '@types/which-pm-runs': 1.0.0
   eslint: 7.32.0
   gulp: 4.0.2
   husky: 4.3.8
@@ -771,6 +775,10 @@ packages:
     resolution: {integrity: sha512-FvnCJljyxhPM3gkRgWmxmDZyAQSiBQQWLI0A0VFL0K7W1oRUrPJSqNO0NvTnLkBcotdlp3lKvaT0JrnyRDkzOg==}
     dependencies:
       '@types/node': 17.0.8
+    dev: true
+
+  /@types/which-pm-runs/1.0.0:
+    resolution: {integrity: sha512-BXfdlYLWvRhngJbih4N57DjO+63Z7AxiFiip8yq3rD46U7V4I2W538gngPvBsZiMehhD8sfGf4xLI6k7TgXvNw==}
     dev: true
 
   /@types/yargs-parser/20.2.1:
@@ -5971,7 +5979,6 @@ packages:
 
   /which-pm-runs/1.0.0:
     resolution: {integrity: sha1-Zws6+8VS4LVd9rd4DKdGFfI60cs=}
-    dev: true
 
   /which/1.3.1:
     resolution: {integrity: sha512-HxJdYWq1MTIQbJ3nw0cqssHoTNU267KlrDuGZ1WYlxDStUtKUhOaJmh112/TZmHxxUfuJqPXSOm7tDyas0OSIQ==}
