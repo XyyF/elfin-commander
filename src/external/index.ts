@@ -19,7 +19,6 @@ interface ExternalOptions {
 }
 
 function externalCommand(command: CommandType, options: ExternalOptions) {
-  shell.echo(`start elfincmd external, command=${command}`);
   // 默认使用multi mode
   if (!options.multi && !options.mono) {
     options.multi = true;
@@ -35,8 +34,6 @@ function externalCommand(command: CommandType, options: ExternalOptions) {
   } else {
     logUtil.error(`不存在的命令: command=${command}`);
   }
-
-  shell.echo(`end elfincmd external, command=${command}`);
 };
 
 export default externalCommand;

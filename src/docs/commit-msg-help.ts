@@ -5,6 +5,7 @@ export default function commitMsg() {
   logUtil.log(`
     - fix      修复bug
     - feat     完成需求
+    - chore    零星工作
     - docs     补充文档
     - perf     性能相关
     - test     测试代码

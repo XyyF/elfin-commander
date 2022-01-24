@@ -1,7 +1,7 @@
 import shellUtil from '../../utils/shell';
 import logUtil from '../../utils/log';
 
-const commitRE = /^(revert: )?(fix|feat|docs|perf|test|types|style|build|refactor|breaking change)(\(.+\))?: .{1,50}/;
+const commitRE = /^(revert: )?(fix|feat|docs|perf|test|types|chore|style|build|refactor|breaking change)(\(.+\))?: .{1,50}/;
 const mergeRE = /Merge /;
 
 export default function commitMsg() {
@@ -17,6 +17,7 @@ export default function commitMsg() {
   Allowed Types:
   - fix      修复bug
   - feat     完成需求
+  - chore    零星工作
   - docs     补充文档
   - perf     性能相关
   - test     测试代码
