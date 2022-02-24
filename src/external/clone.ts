@@ -49,7 +49,7 @@ async function clone(options: any) {
       // 1. ssh地址不存在
       // 2. 分支不存在
       if (result && result.stderr) {
-        logUtil.error(result.stderr + '');
+        logUtil.error(JSON.stringify(result.stderr));
       }
       shell.echo(`[finish] clone [${name}]`);
     } else {
